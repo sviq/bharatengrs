@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/data/*": ["./src/data/*"],
+      "@/styles/*": ["./src/styles/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
+}
+
