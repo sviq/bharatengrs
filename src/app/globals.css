@@ -12,3 +12,52 @@
   /* Custom component styles */
 }
 
+/* Universal sweet orange scrollbar — all browsers */
+
+:root {
+  --orange-500: #f97316; /* Tailwind orange-500 */
+  --orange-600: #ea580c; /* darker for hover */
+  --orange-50: #fff7ed; /* light track */
+}
+
+/* -------------------------- */
+/* WebKit Browsers (Chrome/Edge/Safari) */
+/* -------------------------- */
+
+/* Remove scrollbar buttons */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Scrollbar size */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--orange-50);
+  border-radius: 999px;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: var(--orange-500);
+  border-radius: 999px;
+  border: 2px solid var(--orange-50);
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-600);
+}
+
+/* -------------------------- */
+/* Firefox support */
+/* -------------------------- */
+
+* {
+  scrollbar-width: thin; /* thin scrollbar */
+  scrollbar-color: var(--orange-500) var(--orange-50);
+}
