@@ -1,25 +1,41 @@
 'use client';
 
-import { FaBolt } from 'react-icons/fa';
-import { FaLocationDot, FaPhone, FaEnvelope } from 'react-icons/fa6';
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaMobileAlt, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6';
 
-const Footer = () => {
+const quickLinks = [
+  { label: 'About Us', href: '/about' },
+  { label: 'Products', href: '/products' },
+  { label: 'Clients', href: '/clients' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const productLinks = [
+  { label: 'PCC & MCC Panels', href: '/products#pcc-mcc' },
+  { label: 'MV Panels', href: '/products#mv-panels' },
+  { label: 'Bus Duct Systems', href: '/products#bus-duct' },
+  { label: 'Control Panels', href: '/products#control-panels' },
+];
+
+// const socialLinks = [
+//   { icon: <FaFacebookF />, href: '#' },
+//   { icon: <FaLinkedinIn />, href: '#' },
+//   { icon: <FaTwitter />, href: '#' },
+//   { icon: <FaInstagram />, href: '#' },
+// ];
+
+export default function Footer() {
   return (
-    <footer id="footer" className="bg-[#111] text-gray-400 py-12">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-0 ">
+    <footer className="bg-[#050f47] text-gray-400 py-12" id="footer">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-0">
         {/* TOP GRID */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* LOGO + DESCRIPTION */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              {/* <div className="w-10 h-10 bg-orange-500 rounded flex items-center justify-center text-white font-bold text-xl">
-                <FaBolt />
-              </div>
-              <span className="font-bold text-lg text-white">
-                BHARAT<span className="text-orange-500">ENGINEERS</span>
-              </span> */}
+              {/* <div className="w-10 h-10 bg-orange-500 rounded flex items-center justify-center text-white font-bold text-xl"> <FaBolt /> </div> <span className="font-bold text-lg text-white"> BHARAT<span className="text-orange-500">ENGINEERS</span> </span> */}
               <motion.div
                 className="w-fit h-full py-2"
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -29,112 +45,97 @@ const Footer = () => {
                 <img src="/logo.webp" alt="logo" className="h-16 cursor-pointer" />
               </motion.div>
             </div>
-
             <p className="text-sm">
               Powering industries with reliable electrical solutions since 2005.
             </p>
           </div>
 
           {/* QUICK LINKS */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#about-why-us" className="hover:text-orange-500 transition-colors">
-                  About Us
-                </a>
+          <FooterColumn title="Quick Links">
+            {quickLinks.map((item, idx) => (
+              <li key={idx}>
+                <Link href={item.href} className="hover:text-orange-500 transition-colors">
+                  {item.label}
+                </Link>
               </li>
-              <li>
-                <a href="#products" className="hover:text-orange-500 transition-colors">
-                  Products
-                </a>
-              </li>
-              <li>
-                <a href="#industries" className="hover:text-orange-500 transition-colors">
-                  Industries
-                </a>
-              </li>
-              <li>
-                <a href="#cert-cta" className="hover:text-orange-500 transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </FooterColumn>
 
           {/* PRODUCTS */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Products</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#" className="hover:text-orange-500 transition-colors">
-                  PCC & MCC Panels
-                </a>
+          <FooterColumn title="Products">
+            {productLinks.map((item, idx) => (
+              <li key={idx}>
+                <Link href={item.href} className="hover:text-orange-500 transition-colors">
+                  {item.label}
+                </Link>
               </li>
-              <li>
-                <a href="#" className="hover:text-orange-500 transition-colors">
-                  MV Panels
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-orange-500 transition-colors">
-                  Bus Duct Systems
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-orange-500 transition-colors">
-                  Control Panels
-                </a>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </FooterColumn>
 
           {/* CONTACT */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
+          <FooterColumn title="Contact">
             <ul className="space-y-3 text-sm">
+              {/* Address */}
               <li className="flex items-start gap-2">
                 <FaLocationDot className="text-orange-500 mt-1" />
-                <span>Industrial Area, Gujarat, India</span>
+                <a
+                  href="https://maps.app.goo.gl/Yawifv2drPDtnhB86"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-500 transition-colors"
+                >
+                  Bharat Engineers, Vadodara, Gujarat.
+                </a>
               </li>
 
+              {/* Phone */}
               <li className="flex items-center gap-2">
                 <FaPhone className="text-orange-500" />
-                <span>+91 1234 567 890</span>
+                <a href="tel:02652645006" className="hover:text-orange-500 transition-colors">
+                  0265 2645006
+                </a>
               </li>
 
               <li className="flex items-center gap-2">
+                <FaMobileAlt className="text-orange-500" />
+                <a href="tel:+919879017654" className="hover:text-orange-500 transition-colors">
+                  +91 9879017654
+                </a>
+              </li>
+
+              {/* Email */}
+              <li className="flex items-center gap-2">
                 <FaEnvelope className="text-orange-500" />
-                <span>info@bharatengineers.com</span>
+                <a
+                  href="mailto:bharat_engrs@yahoo.com"
+                  className="hover:text-orange-500 transition-colors"
+                >
+                  bharat_engrs@yahoo.com
+                </a>
               </li>
             </ul>
-          </div>
+          </FooterColumn>
         </div>
 
         {/* BOTTOM BAR */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           {/* COPYRIGHT */}
-          <p className="text-sm text-center md:text-left">
-            © 2025 Bharat Engineers. All rights reserved.
-          </p>
+          <p className="text-sm">© 2025 Bharat Engineers. All rights reserved.</p>
 
           {/* SOCIAL ICONS */}
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="#" className="hover:text-orange-500 transition-colors text-xl">
-              <FaFacebookF />
-            </a>
-            <a href="#" className="hover:text-orange-500 transition-colors text-xl">
-              <FaLinkedinIn />
-            </a>
-            <a href="#" className="hover:text-orange-500 transition-colors text-xl">
-              <FaTwitter />
-            </a>
-            <a href="#" className="hover:text-orange-500 transition-colors text-xl">
-              <FaInstagram />
-            </a>
-          </div>
+          {/* <div className="flex gap-4 mt-4 md:mt-0">
+            {socialLinks.map((item, idx) => (
+              <Link
+                key={idx}
+                href={item.href}
+                className="hover:text-orange-500 transition-colors text-xl"
+              >
+                {item.icon}
+              </Link>
+            ))}
+          </div> */}
 
-          {/* DESIGNED BY */}
+          {/* DESIGN CREDIT */}
           <p className="text-sm mt-4 md:mt-0">
             Designed by{' '}
             <a
@@ -150,6 +151,14 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+}
 
-export default Footer;
+/* 📌 Reusable column wrapper */
+function FooterColumn({ title, children }) {
+  return (
+    <div>
+      <h4 className="text-white font-semibold mb-4">{title}</h4>
+      <ul className="space-y-2 text-sm">{children}</ul>
+    </div>
+  );
+}

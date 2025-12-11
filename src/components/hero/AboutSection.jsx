@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 // Dynamically import framer-motion for optimal performance
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
@@ -155,12 +156,12 @@ export default function AboutSection() {
               />
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              href="/about"
               className="text-orange-600 font-bold hover:text-gray-900 transition inline-flex items-center gap-2"
             >
               Learn More About Us →
-            </a>
+            </Link>
           </MotionDiv>
         </MotionDiv>
       </div>

@@ -6,7 +6,7 @@ const CertificatesSection = () => {
   const items = [
     {
       icon: <FaCertificate className="text-4xl text-orange-500" />,
-      title: 'ISO 9001:2015',
+      title: 'ISO 9001:2008',
     },
     {
       icon: <FaShieldAlt className="text-4xl text-orange-500" />,

@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { memo } from 'react';
 
 // Optimize performance: dynamically load framer-motion
@@ -90,12 +91,12 @@ export default function ProductsSection() {
 
                 <p className="text-gray-500 text-sm mb-4">{card.description}</p>
 
-                <a
-                  href="#"
+                <Link
+                  href="/products"
                   className="inline-flex items-center text-sm font-semibold hover:text-orange-500"
                 >
                   View Specifications →
-                </a>
+                </Link>
               </div>
             </MotionDiv>
           ))}

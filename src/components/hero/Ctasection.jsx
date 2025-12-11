@@ -1,54 +1,51 @@
 'use client';
 
-import { FaPhone, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
-import { SiPhonepe } from 'react-icons/si';
+import Link from 'next/link';
+import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const CtaSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-r from-gray-900 to-gray-800 relative overflow-hidden">
+    <section className="relative py-20 bg-[#071045] border-b overflow-hidden">
       {/* Background Grid Pattern */}
-      <div className="absolute inset-0 opacity-5 bg-[url('/grid.svg')] bg-repeat"></div>
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('/grid.svg')] bg-repeat"></div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      {/* Radial Highlight */}
+      {/* <div className="absolute top-1/2 left-1/2 w-[900px] h-[900px] bg-orange-600/10 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2"></div> */}
+
+      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         {/* Title */}
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+        <h2 className="text-4xl sm:text-4xl font-bold text-white drop-shadow-md leading-tight">
           Looking for Reliable Electrical Panels?
         </h2>
 
         {/* Subtitle */}
-        <p className="text-xl text-gray-300 mb-8">
-          Contact us today for engineering-driven solutions tailored to your industry needs.
+        <p className="mt-6 text-lg sm:text-xl text-white">
+          Get engineering-driven solutions, perfectly tailored to your industrial needs.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5">
           {/* Contact Us Button */}
-          <a
-            href="#contact"
-            className="
-              inline-flex justify-center items-center px-4 py-4 
-              border border-transparent text-base font-semibold rounded
-              bg-orange-500 text-white hover:bg-orange-600
-              transition-all shadow-lg
-            "
+          <Link
+            href="/contact"
+            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold
+                       rounded-md bg-orange-500 text-white
+                       hover:bg-orange-600 transition-all duration-300"
           >
-            <FaPhoneAlt className="mr-2" />
+            <FaPhoneAlt className="mr-2 text-xl group-hover:scale-110 transition" />
             Contact Us Now
-          </a>
+          </Link>
 
           {/* Request Quote Button */}
-          {/* <a
-            href="#quote"
-            className="
-              inline-flex justify-center items-center px-8 py-4
-              border-2 border-white text-base font-semibold rounded 
-              text-white hover:bg-white hover:text-gray-900
-              transition-all
-            "
+          {/* <Link
+            href="/contact#quote"
+            className="group inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-md
+                       border border-white/30 text-white hover:border-white hover:bg-white/10 
+                       backdrop-blur-md transition-all duration-300"
           >
-            <FaEnvelope className="mr-2" />
+            <FaEnvelope className="mr-2 text-xl group-hover:scale-110 transition" />
             Request Quote
-          </a> */}
+          </Link> */}
         </div>
       </div>
     </section>

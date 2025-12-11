@@ -21,7 +21,7 @@ const ClientsCarousel = () => {
     { src: '/images/hero/Linde.webp', alt: 'Linde' },
     { src: '/images/hero/lnt-power.webp', alt: 'L&T Power' },
 
-    { src: '/images/hero/abb.png', alt: 'ABB' },
+    { src: '/images/hero/ABB.webp', alt: 'ABB' },
     { src: '/images/hero/rubamin.png', alt: 'Rubamin' },
     { src: '/images/hero/emerson.webp', alt: 'Emerson' },
     { src: '/images/hero/essar.png', alt: 'Essar' },
@@ -38,7 +38,7 @@ const ClientsCarousel = () => {
       <div className="max-w-[1600px] mx-auto">
         {/* Header */}
         <div className="text-center mb-12 max-w-4xl mx-auto">
-          <span className="text-orange-500 text-sm font-semibold uppercase bg-gray-100 px-4 py-2 rounded-full inline-block mb-4">
+          <span className="text-orange-500 text-base font-bold uppercase px-4 py-2 rounded-full inline-block">
             Our Clients
           </span>
 

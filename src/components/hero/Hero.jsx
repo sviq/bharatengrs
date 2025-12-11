@@ -170,6 +170,7 @@
 
 import dynamic from 'next/dynamic';
 import { FaCircleCheck } from 'react-icons/fa6';
+import Link from 'next/link';
 
 // Framer Motion loaded only on client → MUCH better performance
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
@@ -243,21 +244,23 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.65 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <a
-              href="#products"
+            {/* EXPLORE PRODUCTS BUTTON */}
+            <Link
+              href="/products"
               className="px-8 py-4 bg-orange-500 text-white font-bold rounded hover:bg-orange-600
-                         transition flex items-center justify-center gap-2 group"
+               transition flex items-center justify-center gap-2 group"
             >
               Explore Products
-            </a>
+            </Link>
 
-            <a
-              href="#contact"
+            {/* CONTACT SALES BUTTON */}
+            <Link
+              href="/contact"
               className="px-8 py-4 border border-white/30 text-white font-bold rounded hover:bg-white/10 
-                         transition flex items-center justify-center backdrop-blur-sm"
+               transition flex items-center justify-center backdrop-blur-sm"
             >
               Contact Sales
-            </a>
+            </Link>
           </MotionDiv>
 
           {/* Feature Icons */}
