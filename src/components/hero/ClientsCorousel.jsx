@@ -17,25 +17,24 @@ const ClientsCarousel = () => {
   }, []);
 
   const logos = [
-    { src: '/images/hero/reliance.png', alt: 'Reliance Industries' },
+    { src: '/images/hero/reliance.webp', alt: 'Reliance Industries' },
     { src: '/images/hero/Linde.webp', alt: 'Linde' },
     { src: '/images/hero/lnt-power.webp', alt: 'L&T Power' },
-
     { src: '/images/hero/ABB.webp', alt: 'ABB' },
-    { src: '/images/hero/rubamin.png', alt: 'Rubamin' },
+    { src: '/images/hero/rubamin.webp', alt: 'Rubamin' },
     { src: '/images/hero/emerson.webp', alt: 'Emerson' },
-    { src: '/images/hero/essar.png', alt: 'Essar' },
-    { src: '/images/hero/gsfc.png', alt: 'GSFC' },
-    { src: '/images/hero/KEC.png', alt: 'KEC International' },
-    { src: '/images/hero/polycab.png', alt: 'Polycab' },
-    { src: '/images/hero/Aditya.jpg', alt: 'Aditya Birla Group' },
+    { src: '/images/hero/essar.webp', alt: 'Essar' },
+    { src: '/images/hero/gsfc.webp', alt: 'GSFC' },
+    { src: '/images/hero/KEC.webp', alt: 'KEC International' },
+    { src: '/images/hero/polycab.webp', alt: 'Polycab' },
+    { src: '/images/hero/Aditya.webp', alt: 'Aditya Birla Group' },
   ];
 
   const duplicated = [...logos, ...logos, ...logos];
 
   return (
     <div className="w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 py-8 px-4">
-      <div className="max-w-[1600px] mx-auto">
+      <div className="max-w-full mx-auto">
         {/* Header */}
         <div className="text-center mb-12 max-w-4xl mx-auto">
           <span className="text-orange-500 text-base font-bold uppercase px-4 py-2 rounded-full inline-block">

@@ -61,7 +61,7 @@ export default function AboutSection() {
       className="py-12 lg:py-24 bg-white scroll-mt-20"
       aria-labelledby="about-title"
     >
-      <div className="max-w-[1600px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4">
         {/* MAIN WRAPPER WITH STAGGER ANIMATION */}
         <MotionDiv
           variants={staggerParent}

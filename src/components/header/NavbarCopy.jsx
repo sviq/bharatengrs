@@ -24,7 +24,7 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className="w-full sticky top-0 z-50"
     >
-      <div className="flex items-center justify-between px-6 py-4 md:py-3">
+      <div className="flex items-center justify-between px-4 py-4 md:py-3">
         {/* DESKTOP MENU */}
         <ul className="hidden lg:flex items-center justify-center gap-8 font-medium text-gray-700">
           {navLinks.map((item, index) => (

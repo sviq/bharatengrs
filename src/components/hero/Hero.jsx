@@ -172,6 +172,7 @@ import dynamic from 'next/dynamic';
 import { FaCircleCheck } from 'react-icons/fa6';
 import Link from 'next/link';
 
+
 // Framer Motion loaded only on client → MUCH better performance
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
   ssr: false,
@@ -193,7 +194,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/5 to-transparent z-[1]" />
 
       {/* CONTENT WRAPPER */}
-      <div className="container mx-auto px-6 relative z-[2] flex flex-col md:flex-row items-center">
+      <div className="container max-w-7xl px-4 mx-auto relative z-[2] flex flex-col md:flex-row items-center">
         {/* LEFT SIDE CONTENT */}
         <MotionDiv
           initial={{ opacity: 0, y: 30 }}

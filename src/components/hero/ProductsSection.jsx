@@ -35,7 +35,7 @@ export default function ProductsSection() {
       {/* Soft Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
 
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Header */}
         <MotionDiv
           variants={fadeUp}

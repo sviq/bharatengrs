@@ -29,7 +29,7 @@ const productLinks = [
 export default function Footer() {
   return (
     <footer className="bg-[#050f47] text-gray-400 py-12" id="footer">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-0">
+      <div className="max-w-7xl mx-auto px-4">
         {/* TOP GRID */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* LOGO + DESCRIPTION */}

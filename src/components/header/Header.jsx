@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="border-b-2 border-gray-300">
       <motion.div
-        className="max-w-[1600px] mx-auto flex flex-row items-center justify-between w-full "
+        className="max-w-7xl mx-auto flex flex-row items-center justify-between w-full "
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -19,7 +19,7 @@ export default function Header() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <img src="/logo.webp" alt="logo" className="h-16 px-6 cursor-pointer" />
+          <img src="/logo.webp" alt="logo" className="h-10 md:h-14 px-4 cursor-pointer" />
         </motion.div>
 
         {/* Navbar */}
