@@ -1,0 +1,95 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+
+const navItems = ['Home', 'About Us', 'Products', 'Our Strength', 'Clients', 'Gallery'];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <motion.nav
+      initial={{ opacity: 0, y: -15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="w-full sticky top-0 z-50"
+    >
+      {/* NAVBAR INNER WRAPPER */}
+      <div className="flex items-center justify-between px-6 py-4 md:py-3">
+      
+        {/* DESKTOP MENU */}
+        <ul className="hidden lg:flex items-center justify-center gap-8 font-medium text-gray-700">
+          {navItems.map((item, index) => (
+            <motion.li
+              key={index}
+              className="relative cursor-pointer pb-1"
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+            >
+              <span>{item}</span>
+
+              {/* Animated Underline */}
+              <motion.div
+                className="absolute bottom-0 left-0 h-0.5 bg-[#FF6B42]"
+                variants={{
+                  rest: { width: 0 },
+                  hover: { width: '100%' },
+                }}
+                transition={{ duration: 0.25 }}
+              />
+            </motion.li>
+          ))}
+
+          <motion.a
+            href="/contact-us"
+            className="relative px-5 py-2 font-medium text-white bg-[#FF6B42] rounded-md cursor-pointer"
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+          >
+            <span className="relative z-10">Contact Us</span>
+
+            {/* Hover background expand */}
+            <motion.div
+              className="absolute inset-0 rounded-md bg-[#ff3700]"
+              variants={{
+                rest: { scaleX: 0, originX: 0 },
+                hover: { scaleX: 1, originX: 0 },
+              }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            />
+          </motion.a>
+        </ul>
+
+        {/* MOBILE MENU BUTTON */}
+        <button className="lg:hidden text-3xl" onClick={() => setOpen(!open)}>
+          {open ? '✖' : '☰'}
+        </button>
+      </div>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <motion.ul
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="lg:hidden flex flex-col bg-white shadow px-6 py-4 gap-4 font-medium text-gray-800"
+        >
+          {navItems.map((item, index) => (
+            <motion.li
+              key={index}
+              whileHover={{ x: 5, color: '#ff6b42' }}
+              className="cursor-pointer"
+            >
+              {item}
+            </motion.li>
+          ))}
+
+          {/* CONTACT BUTTON INSIDE MOBILE MENU */}
+          <ContactButton />
+        </motion.ul>
+      )}
+    </motion.nav>
+  );
+}

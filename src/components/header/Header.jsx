@@ -1,18 +1,37 @@
-import Navbar from './Navbar'
-import Logo from './Logo'
-import MobileMenu from './MobileMenu'
+'use client';
+
+import Navbar from './NavbarCopy';
+import { motion } from 'framer-motion';
 
 export default function Header() {
   return (
-    <header className="bg-white shadow-md">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="flex items-center justify-between h-16">
-          <Logo />
-          <Navbar />
-          <MobileMenu />
-        </div>
-      </div>
-    </header>
-  )
-}
+    <div className="border-b-2 border-gray-300">
+      <motion.div
+        className="max-w-[1600px] mx-auto flex flex-row items-center justify-between w-full "
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        {/* Logo */}
+        <motion.div
+          className="w-fit h-full py-2"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <img src="/logo.webp" alt="logo" className="h-16 px-6 cursor-pointer" />
+        </motion.div>
 
+        {/* Navbar */}
+        <motion.div
+          className="flex justify-center items-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Navbar />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}

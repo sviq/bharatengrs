@@ -1,5 +1,7 @@
-import Link from 'next/link'
-import Button from '@/components/common/Button'
+'use client';
+
+import Link from 'next/link';
+import Button from '@/components/common/Button';
 
 export default function HeroContent({ title, description, ctaText, ctaLink }) {
   return (
@@ -16,6 +18,5 @@ export default function HeroContent({ title, description, ctaText, ctaLink }) {
         )}
       </div>
     </div>
-  )
+  );
 }
-

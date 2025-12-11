@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
 export default function ProductModal({ product, isOpen, onClose }) {
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
@@ -19,7 +19,11 @@ export default function ProductModal({ product, isOpen, onClose }) {
           </div>
           <div className="space-y-4">
             {product?.image && (
-              <img src={product.image} alt={product.name} className="w-full h-64 object-cover rounded" />
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-64 object-cover rounded"
+              />
             )}
             <p className="text-gray-600">{product?.description}</p>
             {product?.specs && (
@@ -36,6 +40,5 @@ export default function ProductModal({ product, isOpen, onClose }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

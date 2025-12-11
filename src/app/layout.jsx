@@ -13,13 +13,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
+        <div className="sticky top-0 z-50 bg-white w-full">
+          <Header />
+        </div>
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
         <ScrollToTop />
       </body>
     </html>
-  )
+  );
 }
 
