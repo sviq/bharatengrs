@@ -54,10 +54,10 @@ const ClientsCarousel = () => {
 
         {/* Carousel */}
         <div className="relative">
-          <div className="overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-100">
+          <div className="overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm">
             {ready && (
               <MotionDiv
-                className="flex gap-6 sm:gap-10 md:gap-14 lg:gap-16"
+                className="flex gap-4 sm:gap-10 md:gap-14 lg:gap-16"
                 style={{ width: 'max-content', willChange: 'transform' }}
                 animate={{
                   x: ['0%', '-33.33%'],
@@ -75,7 +75,7 @@ const ClientsCarousel = () => {
                     whileHover={{ scale: 1.12, y: -6 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                   >
-                    <div className="bg-white rounded-xl p-8 h-40 w-56 flex items-center justify-center border border-gray-100 hover:border-blue-200 transition-all duration-300">
+                    <div className="p-8 h-40 w-56 flex items-center justify-center transition-all duration-300">
                       <img
                         src={logo.src}
                         alt={logo.alt}
@@ -93,7 +93,7 @@ const ClientsCarousel = () => {
               <div className="flex gap-12 justify-center">
                 {logos.slice(0, 6).map((logo, idx) => (
                   <div key={idx} className="flex-shrink-0 w-44">
-                    <div className="bg-white rounded-xl p-8 h-40 flex items-center justify-center border border-gray-100">
+                    <div className="p-8 h-40 flex items-center justify-center">
                       <img
                         src={logo.src}
                         alt={logo.alt}

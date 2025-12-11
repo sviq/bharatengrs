@@ -39,7 +39,7 @@ export default function Navbar() {
 
               {/* Animated Underline */}
               <motion.div
-                className="absolute bottom-0 left-0 h-0.5 bg-[#FF6B42]"
+                className="absolute bottom-0 left-0 h-0.5 bg-orange-500"
                 variants={{
                   rest: { width: 0 },
                   hover: { width: '100%' },
@@ -52,7 +52,7 @@ export default function Navbar() {
           {/* CONTACT BUTTON */}
           <motion.a
             href="/contact"
-            className="relative px-5 py-2 font-medium text-white bg-[#FF6B42] rounded-md cursor-pointer"
+            className="relative px-5 py-2 font-medium text-white bg-orange-500 rounded-md cursor-pointer"
             initial="rest"
             whileHover="hover"
             animate="rest"

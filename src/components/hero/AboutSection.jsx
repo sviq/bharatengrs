@@ -142,7 +142,7 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <FeatureItem
                 title="Technical Proficiency"
                 description="Expert engineering for complex needs."
