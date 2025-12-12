@@ -29,12 +29,12 @@ export default function HeroEngineering() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
         <motion.div
-          className="inline-block mb-5 px-4 py-1.5 bg-brand-orange/10 border border-brand-orange/30 rounded-full"
+          className="inline-block mb-5 px-4 py-1.5 bg-orange-500/10 border border-orange-500/30 rounded-full"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
-          <span className="text-brand-orange font-medium text-sm tracking-widest uppercase">
+          <span className="text-orange-500 font-medium text-sm tracking-widest uppercase">
             Since 2005
           </span>
         </motion.div>

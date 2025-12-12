@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
                 </div>
 
                 {/* TITLE */}
-                <h4 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h4>
+                <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-500">{item.title}</h4>
 
                 {/* DESCRIPTION */}
                 <p className="text-gray-600">{item.desc}</p>
