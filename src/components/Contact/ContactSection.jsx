@@ -1,37 +1,98 @@
 'use client';
 
-import { FaLocationDot } from "public/icons/Icons";
-import { FaLocationArrow } from "react-icons/fa";
+import { FaEnvelope, FaLocationDot, FaPaperPlane, FaPhone, FaWhatsapp } from 'react-icons/fa6';
+import { RiCustomerServiceFill } from 'react-icons/ri';
+
+import { motion } from 'framer-motion';
+
+// -------------------------
+// Framer Motion Variants
+// -------------------------
+
+// Whole section subtle lift-in animation
+const containerVariant = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: 'easeOut',
+      duration: 0.6,
+    },
+  },
+};
+
+// Stagger child elements (form + sidebar)
+const gridVariant = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+// Cards animation
+const cardVariant = {
+  hidden: { opacity: 0, y: 35, scale: 0.98 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: 'easeOut' },
+  },
+};
+
+// Button hover animation
+const buttonTap = { scale: 0.97 };
+const buttonHover = { scale: 1.02 };
 
 export default function ContactSection() {
   return (
     <main className="relative z-[60] mt-12 md:-mt-32 mb-20">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* CONTACT FORM */}
-          <div
+      <motion.div
+        className="max-w-7xl mx-auto px-4"
+        variants={containerVariant}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-80px' }}
+      >
+        <motion.div className="grid grid-cols-1 lg:grid-cols-3 gap-8" variants={gridVariant}>
+          {/* CONTACT FORM ------------------------------ */}
+          <motion.div
+            variants={cardVariant}
             id="contact-form"
-            className="lg:col-span-2 bg-white rounded-sm border-2 border-gray-200 overflow-hidden border-t-4 border-t-orange-500"
+            className="lg:col-span-2 bg-white rounded-sm border-2 border-gray-200 
+                       overflow-hidden border-t-4 border-t-orange-500"
           >
-            <div className="p-8 md:p-12">
+            <div className="p-4 md:p-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Send us a Message</h2>
               <p className="text-gray-500 mb-8">
                 Fill out the form below and our engineering team will get back to you within 24
                 hours.
               </p>
 
-              <form className="space-y-6">
+              <motion.form
+                className="space-y-6"
+                variants={gridVariant}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+              >
                 {/* NAME FIELDS */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <motion.div
+                  variants={cardVariant}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                >
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       First Name
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                       placeholder="John"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     />
                   </div>
 
@@ -41,24 +102,27 @@ export default function ContactSection() {
                     </label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                       placeholder="Doe"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     />
                   </div>
-                </div>
+                </motion.div>
 
                 {/* CONTACT FIELDS */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <motion.div
+                  variants={cardVariant}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                >
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Work Email
                     </label>
                     <input
                       type="email"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                       placeholder="john@company.com"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     />
                   </div>
 
@@ -68,21 +132,21 @@ export default function ContactSection() {
                     </label>
                     <input
                       type="tel"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                       placeholder="+91 98765 43210"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     />
                   </div>
-                </div>
+                </motion.div>
 
                 {/* INQUIRY TYPE */}
-                <div>
+                <motion.div variants={cardVariant}>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Inquiry Type
                   </label>
                   <select
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm cursor-pointer
-                               focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none focus:outline-none"
+                               focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none"
                   >
                     <option>Product Inquiry (Sales)</option>
                     <option>Technical Support</option>
@@ -90,119 +154,131 @@ export default function ContactSection() {
                     <option>Vendor Registration</option>
                     <option>Other</option>
                   </select>
-                </div>
+                </motion.div>
 
                 {/* MESSAGE */}
-                <div>
+                <motion.div variants={cardVariant}>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Project Details
                   </label>
                   <textarea
                     rows="4"
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                               focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                     placeholder="Tell us about your requirements..."
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
+                               focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   />
-                </div>
+                </motion.div>
 
                 {/* CONSENT */}
-                <div className="flex items-start gap-3">
+                <motion.div variants={cardVariant} className="flex items-start gap-3">
                   <input
                     type="checkbox"
-                    className="mt-1 w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500 focus:outline-none"
+                    className="mt-1 w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500"
                   />
                   <label className="text-sm text-gray-500">
                     I agree to the processing of my personal data.
                   </label>
-                </div>
+                </motion.div>
 
                 {/* SUBMIT BUTTON */}
-                <button
+                <motion.button
                   type="button"
-                  className="w-full bg-slate-800 text-white font-bold py-4 px-8 
-                rounded-sm hover:bg-orange-500 transition-all duration-300 shadow-lg flex justify-center items-center gap-2 group"
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                  className="w-full bg-[#050f47] text-white font-bold py-4 px-8 rounded-sm 
+                             hover:bg-orange-500 transition-all duration-300 shadow-lg
+                             flex justify-center items-center gap-2 group"
                 >
                   <span>Submit Request</span>
-                  <span className="group-hover:translate-x-1 transition-transform">✈</span>
-                </button>
-              </form>
+                  <FaPaperPlane className="text-sm group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </motion.form>
             </div>
-          </div>
+          </motion.div>
 
-          {/* RIGHT SIDEBAR */}
-          <div className="space-y-6">
+          {/* RIGHT SIDEBAR ------------------------------ */}
+          <motion.div variants={gridVariant} className="space-y-6">
             {/* DIRECT LINES */}
-            <div className="bg-slate-800 text-white p-8 rounded-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500 rounded-full blur-[60px] opacity-20 group-hover:opacity-30 transition" />
+            <motion.div
+              variants={cardVariant}
+              className="bg-[#050f47] text-white p-8 rounded-sm relative overflow-hidden group"
+            >
+              <div
+                className="absolute top-0 right-0 w-32 h-32 bg-orange-500 rounded-full 
+                              blur-[60px] opacity-20 group-hover:opacity-30 transition"
+              />
 
               <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-orange-500">
-                Direct Lines
+                <RiCustomerServiceFill /> Direct Lines
               </h3>
 
               <div className="space-y-6 relative z-10">
-                {/* Phone */}
+                {/* PHONE */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
-                    📞
+                    <FaPhone className="text-orange-500" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase mb-1">Sales Hotline</p>
-                    <p className="font-mono text-lg font-medium hover:text-orange-500 cursor-pointer">
-                      +91 22 4567 8900
+                    <p className="text-lg font-medium hover:text-orange-500 cursor-pointer">
+                      0265 2645006
                     </p>
                   </div>
                 </div>
 
-                {/* WhatsApp */}
+                {/* WHATSAPP */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
-                    💬
+                    <FaWhatsapp className="text-orange-500" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase mb-1">WhatsApp Support</p>
-                    <p className="font-mono text-lg font-medium hover:text-orange-500 cursor-pointer">
-                      +91 98765 43210
+                    <p className="text-lg font-medium hover:text-orange-500 cursor-pointer">
+                      +91 98790 17654
                     </p>
                   </div>
                 </div>
 
-                {/* Email */}
+                {/* EMAIL */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
-                    ✉️
+                    <FaEnvelope className="text-orange-500" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 uppercase mb-1">Email Sales</p>
-                    <p className="font-mono text-sm hover:text-orange-500 cursor-pointer">
-                      sales@bharatengineers.com
+                    <p className="text-lg font-medium hover:text-orange-500 cursor-pointer">
+                      bharat_engrs@yahoo.com
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* HQ ADDRESS */}
-            <div className="bg-white p-8 rounded-sm border-2 border-gray-200">
+            <motion.div
+              variants={cardVariant}
+              className="bg-white p-8 rounded-sm border-2 border-gray-200"
+            >
               <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-orange-500">
-                Headquarters
+                <FaLocationDot /> Headquarters
               </h3>
 
               <p className="text-gray-600 leading-relaxed mb-4">
                 <strong className="text-gray-900 block">Bharat Engineers Pvt. Ltd.</strong>
-                Plot No. 45, MIDC Industrial Area,
-                <br />
-                Thane-Belapur Road, Airoli,
-                <br />
-                Navi Mumbai, Maharashtra 400708
+                Plot No. 290, 2, Krishna Nagar, <br />
+                Makarpura GIDC, Makarpura, <br />
+                Vadodara, Gujarat 390010
               </p>
 
-              {/* Hours */}
+              {/* HOURS */}
               <div className="pt-4 border-t-2 border-gray-100">
                 <p className="text-sm text-gray-500 mb-2">Working Hours</p>
+
                 <div className="flex justify-between text-sm text-gray-800">
                   <span>Mon - Sat</span>
-                  <span>09:00 AM - 06:00 PM</span>
+                  <span>09:00 AM - 07:00 PM</span>
                 </div>
+
                 <div className="flex justify-between text-sm text-gray-500 mt-1">
                   <span>Sunday</span>
                   <span>Closed</span>
@@ -214,13 +290,12 @@ export default function ContactSection() {
                 className="block w-full text-center py-3 border border-gray-300 rounded-sm text-sm font-bold 
                            text-gray-700 hover:border-orange-500 hover:text-orange-500 transition-all mt-6"
               >
-                Get Directions 
+                Get Directions <FaLocationDot className="inline ml-1 -mt-1" />
               </a>
-              
-            </div>
-          </div>
-        </div>
-      </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </main>
   );
 }
