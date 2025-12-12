@@ -42,7 +42,7 @@ export default function Footer() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <img src="/logo.webp" alt="logo" className="h-16 cursor-pointer" />
+                <img src="/logo-footer.svg" alt="logo" className="h-16 cursor-pointer" />
               </motion.div>
             </div>
             <p className="text-sm">

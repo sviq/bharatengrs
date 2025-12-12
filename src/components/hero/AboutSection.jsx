@@ -1,42 +1,27 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ShieldIcon, ToolIcon } from 'public/icons/Icons';
 
-// Dynamically import framer-motion for optimal performance
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
   ssr: false,
 });
 
-// ---------------- Motion Variants ---------------- //
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: 'easeOut' },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 };
 
 const staggerParent = {
-  visible: {
-    transition: {
-      staggerChildren: 0.18,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.18 } },
 };
 
-// ---------------- Component ---------------- //
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="py-12 lg:py-24 bg-white scroll-mt-20"
-      aria-labelledby="about-title"
-    >
+    <section id="about" className="py-12 lg:py-24 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4">
-        {/* MAIN WRAPPER WITH STAGGER ANIMATION */}
         <MotionDiv
           variants={staggerParent}
           initial="hidden"
@@ -44,22 +29,24 @@ export default function AboutSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col lg:flex-row gap-16 items-center"
         >
-          {/* ---------------- IMAGE GRID ---------------- */}
+          {/* IMAGE GRID */}
           <MotionDiv variants={fadeUp} className="w-full lg:w-1/2">
             <div className="grid grid-cols-2 gap-4 px-4 lg:px-0">
               {/* LEFT COLUMN */}
               <div className="space-y-4 mt-4">
-                <div className="h-48 rounded-lg overflow-hidden shadow-lg">
-                  <img
+                {/* Image 1 */}
+                <div className="h-48 rounded-lg overflow-hidden shadow-lg relative">
+                  <Image
                     src="/images/hero/about1.webp"
                     alt="Engineer working on equipment"
-                    width={500}
-                    height={400}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    fill
+                    priority={false}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 hover:scale-110"
                   />
                 </div>
 
+                {/* Counter Box */}
                 <div className="h-60 rounded-lg shadow-lg bg-gray-100 flex items-center justify-center">
                   <div className="text-center p-6">
                     <h3 className="text-4xl font-bold text-orange-500">20+</h3>
@@ -70,17 +57,19 @@ export default function AboutSection() {
 
               {/* RIGHT COLUMN */}
               <div className="space-y-4">
-                <div className="h-60 rounded-lg overflow-hidden shadow-lg">
-                  <img
+                {/* Image 2 */}
+                <div className="h-60 rounded-lg overflow-hidden shadow-lg relative">
+                  <Image
                     src="/images/hero/about2.webp"
                     alt="Electrical control panel"
-                    width={500}
-                    height={400}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    fill
+                    priority={false}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-700 hover:scale-110"
                   />
                 </div>
 
+                {/* Quote Box */}
                 <div className="h-48 rounded-lg shadow-lg bg-[#0F172A] p-6 flex flex-col justify-center">
                   <div className="text-orange-500 text-4xl mb-2">“</div>
                   <p className="text-gray-300 text-sm italic">
@@ -91,39 +80,29 @@ export default function AboutSection() {
             </div>
           </MotionDiv>
 
-          {/* ---------------- TEXT CONTENT ---------------- */}
+          {/* TEXT CONTENT */}
           <MotionDiv variants={fadeUp} className="w-full lg:w-1/2">
             <span className="text-orange-500 font-bold tracking-wider uppercase text-sm block mb-2">
               Company Introduction
             </span>
 
-            <h2 id="about-title" className="font-bold text-4xl text-gray-900 mb-6 leading-snug">
+            <h2 className="font-bold text-4xl text-gray-900 mb-6 leading-snug">
               Engineering Excellence Since 2005
             </h2>
 
-            <div className="text-gray-600 mb-8 leading-relaxed space-y-4">
+            <div className="text-gray-600 mb-8 space-y-4 leading-relaxed">
               <p>
                 Bharat Engineers and its talented team is led by
                 <strong> Mr. Anil M. Deotale</strong>, a veteran in the field of Power Control
-                Centers. Since its establishment in 2005, Bharat Engineers has made significant
-                strides in the manufacturing of Power Control Center (PCC) Panels.
+                Centers...
               </p>
 
-              <p>
-                With 20+ years of experience at L&T Switchgears across multiple divisions, Mr.
-                Deotale brings unmatched expertise and leadership. His technical proficiency drives
-                Bharat Engineers toward becoming the most reliable manufacturer of PCC panels.
-              </p>
+              <p>With 20+ years of experience at L&T Switchgears...</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {features.map((item) => (
-                <FeatureItem
-                  key={item.title}
-                  title={item.title}
-                  description={item.description}
-                  icon={item.icon}
-                />
+                <FeatureItem {...item} key={item.title} />
               ))}
             </div>
 
@@ -140,7 +119,6 @@ export default function AboutSection() {
   );
 }
 
-// ---------------- Feature Item Component ---------------- //
 const FeatureItem = ({ icon, title, description }) => (
   <div className="flex items-start gap-3">
     <div className="w-12 h-12 rounded bg-orange-100 flex items-center justify-center shrink-0">
