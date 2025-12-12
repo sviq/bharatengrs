@@ -13,7 +13,9 @@ export default function ContactUsPage() {
     <>
       <ContactHero />
       <ContactSection />
-      <MapEmbed />
+      <div className="flex items-center justify-center ">
+        <MapEmbed />
+      </div>
       <FaqSection />
     </>
   );

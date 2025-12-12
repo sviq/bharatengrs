@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 
 export default function MapEmbed() {
   return (
-    <div className="w-full flex justify-center my-6">
+    <div className="w-full max-w-7xl flex items-center justify-center my-6 px-4">
       <motion.div
         className="
-          w-full max-w-7xl 
+          w-full 
           h-[350px] 
           rounded-sm
           overflow-hidden
           border-2 border-gray-200
           shadow-md
-          mx-4
+        
         "
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

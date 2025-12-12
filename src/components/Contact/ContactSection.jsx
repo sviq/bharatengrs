@@ -92,7 +92,7 @@ export default function ContactSection() {
                       type="text"
                       placeholder="John"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                     />
                   </div>
 
@@ -104,7 +104,7 @@ export default function ContactSection() {
                       type="text"
                       placeholder="Doe"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                     />
                   </div>
                 </motion.div>
@@ -122,7 +122,7 @@ export default function ContactSection() {
                       type="email"
                       placeholder="john@company.com"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                     />
                   </div>
 
@@ -134,7 +134,7 @@ export default function ContactSection() {
                       type="tel"
                       placeholder="+91 98765 43210"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                     />
                   </div>
                 </motion.div>
@@ -146,7 +146,7 @@ export default function ContactSection() {
                   </label>
                   <select
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm cursor-pointer
-                               focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none"
+                               focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none focus:outline-none"
                   >
                     <option>Product Inquiry (Sales)</option>
                     <option>Technical Support</option>
@@ -165,7 +165,7 @@ export default function ContactSection() {
                     rows="4"
                     placeholder="Tell us about your requirements..."
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                               focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                               focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
                   />
                 </motion.div>
 
@@ -189,8 +189,8 @@ export default function ContactSection() {
                              hover:bg-orange-500 transition-all duration-300 shadow-lg
                              flex justify-center items-center gap-2 group"
                 >
-                  <span>Submit Request</span>
                   <FaPaperPlane className="text-sm group-hover:translate-x-1 transition-transform" />
+                  <span>Send Request</span>
                 </motion.button>
               </motion.form>
             </div>
@@ -208,8 +208,8 @@ export default function ContactSection() {
                               blur-[60px] opacity-20 group-hover:opacity-30 transition"
               />
 
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-orange-500">
-                <RiCustomerServiceFill /> Direct Lines
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-white">
+                <RiCustomerServiceFill className="text-orange-500" /> Direct Lines
               </h3>
 
               <div className="space-y-6 relative z-10">
@@ -287,10 +287,11 @@ export default function ContactSection() {
 
               <a
                 href="#"
-                className="block w-full text-center py-3 border border-gray-300 rounded-sm text-sm font-bold 
+                className="block w-full text-center py-3 border items-center border-gray-300 rounded-sm text-sm font-bold 
                            text-gray-700 hover:border-orange-500 hover:text-orange-500 transition-all mt-6"
               >
-                Get Directions <FaLocationDot className="inline ml-1 -mt-1" />
+                <FaLocationDot className="inline mr-2 -mt-1" />
+                Get Directions
               </a>
             </motion.div>
           </motion.div>

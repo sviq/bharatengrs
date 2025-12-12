@@ -1,6 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { FaLocationDot } from 'public/icons/Icons';
+import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRightArrowLeft, FaMapLocationDot } from 'react-icons/fa6';
 
 // Motion Variants
 const fadeUp = {
@@ -99,7 +102,7 @@ export default function ContactHero() {
                          hover:bg-white hover:text-orange-500 transition-all duration-300 
                          rounded-sm shadow-xl shadow-orange-500/20 flex items-center gap-2"
             >
-              Start Conversation →
+              Start Conversation <FaArrowRight className="inline mr-2" />
             </motion.a>
 
             <motion.a
