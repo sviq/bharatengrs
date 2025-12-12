@@ -1,8 +1,9 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 // NAV ITEMS WITH ROUTES
@@ -15,7 +16,7 @@ const navLinks = [
   { label: 'Gallery', path: '/gallery' },
 ];
 
-export default function Header() {
+export default function HeaderClient() {
   const [open, setOpen] = useState(false);
 
   // Close mobile menu when clicking outside or on a link
@@ -64,9 +65,11 @@ export default function Header() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <Link href="/" onClick={handleLinkClick}>
-              <img
+              <Image
                 src="/logo.webp"
                 alt="Company Logo"
+                width={12}
+                height={12}
                 className="h-10 md:h-14 cursor-pointer object-contain"
                 onError={(e) => {
                   e.target.style.display = 'none';

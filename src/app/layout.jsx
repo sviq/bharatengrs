@@ -1,13 +1,14 @@
-import './globals.css'
-import Header from '@/components/header/Header'
-import Footer from '@/components/footer/Footer'
-import WhatsAppButton from '@/components/floating/WhatsAppButton'
-import ScrollToTop from '@/components/floating/ScrollToTop'
+import './globals.css';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
+import WhatsAppButton from '@/components/floating/WhatsAppButton';
+import ScrollToTop from '@/components/floating/ScrollToTop';
 
 export const metadata = {
   title: 'Bharat Engrs - Electrical Engineering & Panel Manufacturing',
-  description: 'Leading manufacturer of electrical control panels, MCC, PCC, and automation solutions.',
-}
+  description:
+    'Leading manufacturer of electrical control panels, MCC, PCC, and automation solutions.',
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -24,4 +25,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
