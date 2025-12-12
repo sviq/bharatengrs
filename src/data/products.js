@@ -1,25 +1,30 @@
 export const products = [
   {
-    id: 1,
-    name: 'MCC Panels',
-    description: 'Motor Control Center panels for efficient motor management.',
-    image: '/images/products/mcc-panel.jpg',
-    specs: ['IP54 Rated', 'IS/IEC Standards', 'Customizable'],
+    title: 'PCC & MCC Panels',
+    description:
+      'High-capacity Power Control Centers and Motor Control Centers designed for efficiency.',
+    image: '/images/hero/product1.webp',
   },
   {
-    id: 2,
-    name: 'PCC Panels',
-    description: 'Power Control Center panels for power distribution.',
-    image: '/images/products/pcc-panel.jpg',
-    specs: ['High Voltage Rated', 'Safety Compliant', 'Durable'],
+    title: 'MV Panels up to 11kV',
+    description: 'Robust Medium Voltage panels ensuring safe power distribution for heavy loads.',
+    image: '/images/hero/product2.webp',
   },
   {
-    id: 3,
-    name: 'APFC Panels',
-    description: 'Automatic Power Factor Correction panels.',
-    image: '/images/products/apfc-panel.jpg',
-    specs: ['Energy Efficient', 'Auto Correction', 'Cost Effective'],
+    title: 'Bus Duct Systems',
+    description: 'Efficient and compact power transmission solutions for modern infrastructure.',
+    image: '/images/hero/product3.webp',
+  },
+  {
+    title: 'AMF, APFC & VFD Panels',
+    description: 'Advanced automation panels for power factor correction and drive control.',
+    image: '/images/hero/product4.webp',
+  },
+  {
+    title: 'Process Control Panels',
+    description: 'Customized control solutions for specialized process industries.',
+    image: '/images/hero/product5.webp',
   },
   // Add more products as needed
-]
+];
 

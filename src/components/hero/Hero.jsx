@@ -169,7 +169,7 @@
 
 
 import dynamic from 'next/dynamic';
-import { FaCircleCheck } from 'react-icons/fa6';
+import { FaCircleCheck } from 'public/icons/Icons';
 import Link from 'next/link';
 
 
@@ -177,6 +177,8 @@ import Link from 'next/link';
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
   ssr: false,
 });
+
+const features = ['High Quality', 'Competitive Price', 'Easy Maintenance'];
 
 const HeroSection = () => {
   return (
@@ -271,15 +273,12 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-gray-300"
           >
-            <div className="flex items-center gap-2">
-              <FaCircleCheck className="text-orange-500" /> High Quality
-            </div>
-            <div className="flex items-center gap-2">
-              <FaCircleCheck className="text-orange-500" /> Competitive Price
-            </div>
-            <div className="flex items-center gap-2">
-              <FaCircleCheck className="text-orange-500" /> Easy Maintenance
-            </div>
+            {features.map((feature) => (
+              <div key={feature} className="flex items-center gap-2">
+                <FaCircleCheck className="text-orange-500 w-5" />
+                {feature}
+              </div>
+            ))}
           </MotionDiv>
         </MotionDiv>
 

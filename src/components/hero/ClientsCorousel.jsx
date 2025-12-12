@@ -1,36 +1,28 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { memo, useEffect, useRef, useState } from 'react';
+import { memo } from 'react';
 
-// Dynamic import for framer-motion (CSR only)
-const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
-  ssr: false,
-});
+const MotionDiv = dynamic(() => import('framer-motion').then((m) => m.motion.div), { ssr: false });
 
-const ClientsCarousel = () => {
-  const [ready, setReady] = useState(false);
-  const controlsRef = useRef(null);
+const logos = [
+  { src: '/images/hero/reliance.webp', alt: 'Reliance Industries' },
+  { src: '/images/hero/Linde.webp', alt: 'Linde' },
+  { src: '/images/hero/lnt-power.webp', alt: 'L&T Power' },
+  { src: '/images/hero/ABB.webp', alt: 'ABB' },
+  { src: '/images/hero/rubamin.webp', alt: 'Rubamin' },
+  { src: '/images/hero/emerson.webp', alt: 'Emerson' },
+  { src: '/images/hero/essar.webp', alt: 'Essar' },
+  { src: '/images/hero/gsfc.webp', alt: 'GSFC' },
+  { src: '/images/hero/KEC.webp', alt: 'KEC International' },
+  { src: '/images/hero/polycab.webp', alt: 'Polycab' },
+  { src: '/images/hero/Aditya.webp', alt: 'Aditya Birla Group' },
+];
 
-  useEffect(() => {
-    setReady(true);
-  }, []);
+const duplicated = [...logos, ...logos, ...logos];
 
-  const logos = [
-    { src: '/images/hero/reliance.webp', alt: 'Reliance Industries' },
-    { src: '/images/hero/Linde.webp', alt: 'Linde' },
-    { src: '/images/hero/lnt-power.webp', alt: 'L&T Power' },
-    { src: '/images/hero/ABB.webp', alt: 'ABB' },
-    { src: '/images/hero/rubamin.webp', alt: 'Rubamin' },
-    { src: '/images/hero/emerson.webp', alt: 'Emerson' },
-    { src: '/images/hero/essar.webp', alt: 'Essar' },
-    { src: '/images/hero/gsfc.webp', alt: 'GSFC' },
-    { src: '/images/hero/KEC.webp', alt: 'KEC International' },
-    { src: '/images/hero/polycab.webp', alt: 'Polycab' },
-    { src: '/images/hero/Aditya.webp', alt: 'Aditya Birla Group' },
-  ];
-
-  const duplicated = [...logos, ...logos, ...logos];
+function ClientsCarousel() {
+  const isClient = typeof window !== 'undefined';
 
   return (
     <div className="w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 py-8 px-4">
@@ -55,27 +47,21 @@ const ClientsCarousel = () => {
         {/* Carousel */}
         <div className="relative">
           <div className="overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm">
-            {ready && (
+            {isClient ? (
               <MotionDiv
                 className="flex gap-4 sm:gap-10 md:gap-14 lg:gap-16"
-                style={{ width: 'max-content', willChange: 'transform' }}
-                animate={{
-                  x: ['0%', '-33.33%'],
-                }}
-                transition={{
-                  duration: 40,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
+                style={{ width: 'max-content' }}
+                animate={{ x: ['0%', '-33.33%'] }}
+                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
               >
                 {duplicated.map((logo, idx) => (
                   <MotionDiv
                     key={idx}
-                    className="flex-shrink-0"
+                    className="flex-shrink-0 w-[150px] sm:w-[180px] md:w-[220px]"
                     whileHover={{ scale: 1.12, y: -6 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
                   >
-                    <div className="p-8 h-40 w-56 flex items-center justify-center transition-all duration-300">
+                    <div className="p-8 h-40 w-full flex items-center justify-center">
                       <img
                         src={logo.src}
                         alt={logo.alt}
@@ -87,12 +73,11 @@ const ClientsCarousel = () => {
                   </MotionDiv>
                 ))}
               </MotionDiv>
-            )}
-
-            {!ready && (
+            ) : (
+              // SSR Placeholder
               <div className="flex gap-12 justify-center">
                 {logos.slice(0, 6).map((logo, idx) => (
-                  <div key={idx} className="flex-shrink-0 w-44">
+                  <div key={idx} className="flex-shrink-0 w-[150px] sm:w-[180px]">
                     <div className="p-8 h-40 flex items-center justify-center">
                       <img
                         src={logo.src}
@@ -107,21 +92,8 @@ const ClientsCarousel = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 640px) {
-          .flex-shrink-0 {
-            width: 150px !important;
-          }
-        }
-        @media (min-width: 641px) and (max-width: 1024px) {
-          .flex-shrink-0 {
-            width: 180px !important;
-          }
-        }
-      `}</style>
     </div>
   );
-};
+}
 
 export default memo(ClientsCarousel);

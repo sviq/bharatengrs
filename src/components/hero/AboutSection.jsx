@@ -2,38 +2,12 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { ShieldIcon, ToolIcon } from 'public/icons/Icons';
 
 // Dynamically import framer-motion for optimal performance
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
   ssr: false,
 });
-
-// ---------------- Icons ---------------- //
-const ShieldIcon = (props) => (
-  <svg
-    width="28"
-    height="28"
-    fill="currentColor"
-    viewBox="0 0 512 512"
-    aria-hidden="true"
-    {...props}
-  >
-    <path d="m466.5 83.7-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3M256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7" />
-  </svg>
-);
-
-const ToolIcon = (props) => (
-  <svg
-    width="28"
-    height="28"
-    fill="currentColor"
-    viewBox="0 0 512 512"
-    aria-hidden="true"
-    {...props}
-  >
-    <path d="M501.1 395.7 384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7M331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9m-103.9 82-56.7-56.7L18.7 402.8c-25 25-25 65.5 0 90.5s65.5 25 90.5 0l123.6-123.6c-7.6-19.9-9.9-41.6-5-62.7M64 472c-13.2 0-24-10.8-24-24 0-13.3 10.7-24 24-24s24 10.7 24 24c0 13.2-10.7 24-24 24" />
-  </svg>
-);
 
 // ---------------- Motion Variants ---------------- //
 const fadeUp = {
@@ -143,17 +117,14 @@ export default function AboutSection() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <FeatureItem
-                title="Technical Proficiency"
-                description="Expert engineering for complex needs."
-                icon={<ToolIcon className="text-orange-500 h-5 w-5" />}
-              />
-
-              <FeatureItem
-                title="Safety First"
-                description="Guaranteed safety for operating personnel."
-                icon={<ShieldIcon className="text-orange-500 h-5 w-5" />}
-              />
+              {features.map((item) => (
+                <FeatureItem
+                  key={item.title}
+                  title={item.title}
+                  description={item.description}
+                  icon={item.icon}
+                />
+              ))}
             </div>
 
             <Link
@@ -181,3 +152,16 @@ const FeatureItem = ({ icon, title, description }) => (
     </div>
   </div>
 );
+
+const features = [
+  {
+    title: 'Technical Proficiency',
+    description: 'Expert engineering for complex needs.',
+    icon: <ToolIcon className="text-orange-500 h-5 w-5" />,
+  },
+  {
+    title: 'Safety First',
+    description: 'Guaranteed safety for operating personnel.',
+    icon: <ShieldIcon className="text-orange-500 h-5 w-5" />,
+  },
+];

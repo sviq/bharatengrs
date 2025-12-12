@@ -76,8 +76,8 @@ export default function Footer() {
           <FooterColumn title="Contact">
             <ul className="space-y-3 text-sm">
               {/* Address */}
-              <li className="flex items-start gap-2">
-                <FaLocationDot className="text-orange-500 mt-1" />
+              <li className="flex items-center gap-2">
+                <FaLocationDot className="text-orange-500" />
                 <a
                   href="https://maps.app.goo.gl/Yawifv2drPDtnhB86"
                   target="_blank"
