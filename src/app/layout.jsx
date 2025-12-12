@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="sticky top-0 z-50 bg-white w-full">
+        <div className="sticky top-0 z-[80] bg-white w-full">
           <Header />
         </div>
         <main>{children}</main>
