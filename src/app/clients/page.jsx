@@ -1,4 +1,6 @@
+import ClientLogos from "@/components/clients/ClientLogos";
 import ClientsHeroContent from "@/components/clients/Hero"
+import TrustStatement from "@/components/clients/TrustStatement";
 import HeroWrapper from "@/components/products/HeroWrapper"
 
 export const metadata = {
@@ -12,6 +14,8 @@ export default function ClientsPage() {
       <HeroWrapper>
         <ClientsHeroContent />
       </HeroWrapper>
+      <ClientLogos />
+      <TrustStatement />
     </main>
   );
 }
