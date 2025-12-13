@@ -150,7 +150,7 @@ export default function ProductsElectricalSection() {
             <div className="h-1 w-24 bg-orange-500"></div>
           </div>
 
-          <p className="text-gray-600 max-w-md md:text-right text-sm">
+          <p className="text-gray-600 md:max-w-md md:text-right text-sm">
             Comprehensive range of LT panels designed for robust power distribution and precise
             control across industrial applications.
           </p>

@@ -113,7 +113,7 @@ export default function IndustriesSection() {
       <div className="absolute top-0 right-0 w-64 h-64 bg-gray-200/50 rounded-bl-full -z-0 opacity-50" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-200/50 rounded-tr-full -z-0 opacity-50" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
