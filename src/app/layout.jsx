@@ -1,9 +1,9 @@
-import './globals.css';
-import Header from '@/components/header/Header';
-import Footer from '@/components/footer/Footer';
-import WhatsAppButton from '@/components/floating/WhatsAppButton';
-import ScrollToTop from '@/components/floating/ScrollToTop';
 import RouteLoader from '@/components/common/RouteLoader'; // ⭐ ADD THIS
+import ScrollToTop from '@/components/floating/ScrollToTop';
+import WhatsAppButton from '@/components/floating/WhatsAppButton';
+import Footer from '@/components/footer/Footer';
+import Header from '@/components/header/Header';
+import './globals.css';
 
 export const metadata = {
   title: 'Bharat Engrs - Electrical Engineering & Panel Manufacturing',
@@ -15,17 +15,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <div className="sticky top-0 z-[80] bg-white w-full">
+          <Header />
+        </div>
         <RouteLoader>
-          <div className="sticky top-0 z-[80] bg-white w-full">
-            <Header />
-          </div>
-
           <main>{children}</main>
-
-          <Footer />
-          <WhatsAppButton />
-          <ScrollToTop />
         </RouteLoader>
+
+        <Footer />
+        <WhatsAppButton />
+        <ScrollToTop />
       </body>
     </html>
   );
