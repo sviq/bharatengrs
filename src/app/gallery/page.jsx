@@ -1,3 +1,7 @@
+import CapabilitiesSection from "@/components/gallery/CapabilitiesSection"
+import GallerySection from "@/components/gallery/GallarySection"
+import GallaryhHero from "@/components/gallery/Hero"
+
 export const metadata = {
   title: 'Gallery - Bharat Engrs',
   description: 'View our projects, products, and facilities gallery.',
@@ -6,8 +10,9 @@ export const metadata = {
 export default function GalleryPage() {
   return (
     <main>
-      <h1>Gallery</h1>
-      {/* Gallery page content */}
+      <GallaryhHero />
+      <GallerySection />
+      <CapabilitiesSection />
     </main>
   )
 }
