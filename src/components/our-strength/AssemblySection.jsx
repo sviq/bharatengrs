@@ -29,7 +29,7 @@ export default function AssemblySection() {
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:20px_20px]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-3xl md:text-4xl uppercase mb-2">

@@ -9,7 +9,7 @@ export default function CeoMessage() {
       className="py-12 md:py-20 bg-[#F5F5F7] relative overflow-hidden"
       aria-labelledby="ceo-quote-title"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
         {/* MAIN CARD */}
         <motion.article
           role="blockquote"

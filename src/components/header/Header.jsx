@@ -1,10 +1,10 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // ⭐ ADD THIS
-import { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { usePathname } from 'next/navigation'; // ⭐ ADD THIS
 
 // NAV ITEMS WITH ROUTES
 const navLinks = [
@@ -67,7 +67,7 @@ export default function Header() {
           <motion.ul className="hidden lg:flex items-center gap-6 xl:gap-8 font-medium text-gray-700">
             {navLinks.map((item) => {
               const isActive = pathname === item.path || pathname.startsWith(item.path + '/');
-              // ⭐ CHECK ACTIVE STATE
+ // ⭐ CHECK ACTIVE STATE
 
               return (
                 <motion.li key={item.path} className="relative pb-1 cursor-pointer">
@@ -93,7 +93,7 @@ export default function Header() {
             {/* CONTACT BUTTON */}
             <Link
               href="/contact"
-              className="relative inline-block px-5 py-2 text-white bg-orange-500 rounded-md overflow-hidden"
+              className="relative inline-block px-5 py-2 text-white bg-orange-500 hover:bg-orange-600 rounded-md overflow-hidden transition-all duration-300"
             >
               <span className="relative z-10">Contact Us</span>
             </Link>
@@ -116,14 +116,14 @@ export default function Header() {
           {open && (
             <>
               <motion.div
-                className="fixed inset-0 bg-black/20 backdrop-blur-sm lg:hidden"
+                className="fixed inset-0 lg:hidden"
                 onClick={() => setOpen(false)}
               />
 
               <motion.div className="absolute left-0 right-0 bg-white shadow-lg lg:hidden">
                 <ul className="flex flex-col px-4 py-4 gap-2 font-medium text-gray-800">
                   {navLinks.map((item, index) => {
-                    const isActive = pathname === item.path || pathname.startsWith(item.path + '/'); // ⭐ MOBILE ACTIVE STATE
+                    const isActive = pathname === item.path || pathname.startsWith(item.path + '/');// ⭐ MOBILE ACTIVE STATE
 
                     return (
                       <motion.li key={item.path} whileHover={{ x: 5 }}>

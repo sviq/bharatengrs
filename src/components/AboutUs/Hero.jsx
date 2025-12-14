@@ -26,7 +26,7 @@ export default function HeroEngineering() {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
         {/* Badge */}
         <motion.div
           className="inline-block mb-5 px-4 py-1.5 bg-orange-500/10 border border-orange-500/30 rounded-full"

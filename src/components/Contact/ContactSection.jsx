@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import { FaEnvelope, FaLocationDot, FaPaperPlane, FaPhone, FaWhatsapp } from 'react-icons/fa6';
 import { RiCustomerServiceFill } from 'react-icons/ri';
 
@@ -48,6 +50,49 @@ const buttonTap = { scale: 0.97 };
 const buttonHover = { scale: 1.02 };
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    inquiry: '',
+    message: '',
+    consent: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      alert('Message sent successfully!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        inquiry: '',
+        message: '',
+        consent: false,
+      });
+    } else {
+      alert('Something went wrong');
+    }
+  };
+
   return (
     <main className="relative z-[60] mt-12 md:-mt-32 mb-20">
       <motion.div
@@ -78,6 +123,7 @@ export default function ContactSection() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
+                onSubmit={handleSubmit}
               >
                 {/* NAME FIELDS */}
                 <motion.div
@@ -93,6 +139,9 @@ export default function ContactSection() {
                       placeholder="John"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
                                  focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
                     />
                   </div>
 
@@ -105,6 +154,9 @@ export default function ContactSection() {
                       placeholder="Doe"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
                                  focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
                     />
                   </div>
                 </motion.div>
@@ -123,6 +175,9 @@ export default function ContactSection() {
                       placeholder="john@company.com"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
                                  focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                   </div>
 
@@ -135,6 +190,9 @@ export default function ContactSection() {
                       placeholder="+91 98765 43210"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
                                  focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                     />
                   </div>
                 </motion.div>
@@ -147,6 +205,9 @@ export default function ContactSection() {
                   <select
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm cursor-pointer
                                focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none focus:outline-none"
+                    name="inquiry"
+                    value={formData.inquiry}
+                    onChange={handleChange}
                   >
                     <option>Product Inquiry (Sales)</option>
                     <option>Technical Support</option>
@@ -166,6 +227,9 @@ export default function ContactSection() {
                     placeholder="Tell us about your requirements..."
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
                                focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                   />
                 </motion.div>
 
@@ -174,6 +238,9 @@ export default function ContactSection() {
                   <input
                     type="checkbox"
                     className="mt-1 w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500"
+                    name="consent"
+                    value={formData.consent}
+                    onChange={handleChange}
                   />
                   <label className="text-sm text-gray-500">
                     I agree to the processing of my personal data.
@@ -182,7 +249,7 @@ export default function ContactSection() {
 
                 {/* SUBMIT BUTTON */}
                 <motion.button
-                  type="button"
+                  type="submit"
                   whileHover={buttonHover}
                   whileTap={buttonTap}
                   className="w-full bg-[#050f47] text-white font-bold py-4 px-8 rounded-sm 
