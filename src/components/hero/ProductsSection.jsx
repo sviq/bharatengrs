@@ -1,8 +1,8 @@
 'use client';
 
+import { products } from '@/data/products';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { products } from '@/data/products';
 import { PdfIcon } from 'public/icons/Icons';
 
 // Optimize performance: dynamically load framer-motion
@@ -120,7 +120,7 @@ export default function ProductsSection() {
             </p>
 
             <a
-              href="/api/download"
+              href="/assets/Bharat_profile.pdf"
               className="bg-white text-orange-500 px-6 py-2 rounded font-semibold hover:bg-gray-100 transition-colors"
               aria-label="Download product catalog PDF"
             >
@@ -132,4 +132,3 @@ export default function ProductsSection() {
     </section>
   );
 }
-
