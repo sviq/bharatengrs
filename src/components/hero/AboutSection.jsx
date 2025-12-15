@@ -31,7 +31,7 @@ export default function AboutSection() {
         >
           {/* IMAGE GRID */}
           <MotionDiv variants={fadeUp} className="w-full lg:w-1/2">
-            <div className="grid grid-cols-2 gap-4 px-4">
+            <div className="grid grid-cols-2 gap-4">
               {/* LEFT COLUMN */}
               <div className="space-y-4 mt-4">
                 {/* Image 1 */}
