@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { memo, useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { ProductsCollectionStructuredData } from '@/components/seo/ProductsStructuredData';
 
 const MotionDiv = motion.div;
 
@@ -131,6 +132,7 @@ export default function ProductsElectricalSection() {
 
   return (
     <section id="products-electrical" className="py-20 lg:py-28 bg-gray-50 relative">
+      <ProductsCollectionStructuredData products={products} />
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-30 pointer-events-none"></div>
 

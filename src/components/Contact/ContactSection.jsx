@@ -7,6 +7,7 @@ import { RiCustomerServiceFill } from 'react-icons/ri';
 
 import { motion } from 'framer-motion';
 import { toast, Toaster } from 'react-hot-toast';
+import { companyInfo } from '@/data/company-info';
 
 // -------------------------
 // Framer Motion Variants
@@ -418,9 +419,12 @@ export default function ContactSection({ firstNameRef }) {
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase mb-1">Sales Hotline</p>
-                      <p className="text-lg font-medium hover:text-orange-500 cursor-pointer">
-                        0265 2645006
-                      </p>
+                      <a
+                        href={`tel:+91${companyInfo.phone.replace(/\s/g, '').replace(/^0/, '')}`}
+                        className="text-lg font-medium hover:text-orange-500 cursor-pointer block"
+                      >
+                        {companyInfo.phone}
+                      </a>
                     </div>
                   </div>
 

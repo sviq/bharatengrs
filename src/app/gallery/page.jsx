@@ -2,11 +2,15 @@ import Hero from "@/components/common/Hero"
 import CapabilitiesSection from "@/components/gallery/CapabilitiesSection"
 import GallerySection from "@/components/gallery/GallarySection"
 import GallaryhHero from "@/components/gallery/Hero"
+import { generateMetadata as genMeta } from '@/lib/meta';
 
-export const metadata = {
-  title: 'Gallery - Bharat Engrs',
-  description: 'View our projects, products, and facilities gallery.',
-}
+export const metadata = genMeta({
+  title: 'Gallery',
+  description:
+    'View our projects, products, and facilities gallery. Explore our engineering excellence through detailed images of our manufacturing capabilities, completed projects, and precision-built electrical control panels.',
+  url: '/gallery',
+  keywords: ['project gallery', 'product gallery', 'manufacturing facilities', 'completed projects', 'engineering showcase'],
+});
 
 export default function GalleryPage() {
   return (

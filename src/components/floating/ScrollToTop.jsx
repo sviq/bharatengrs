@@ -4,28 +4,38 @@ import { useState, useEffect } from 'react'
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+    
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (typeof window !== 'undefined' && window.pageYOffset > 300) {
         setIsVisible(true)
       } else {
         setIsVisible(false)
       }
     }
 
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', toggleVisibility)
+      // Initial check
+      toggleVisibility()
+      return () => window.removeEventListener('scroll', toggleVisibility)
+    }
   }, [])
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    }
   }
 
-  if (!isVisible) return null
+  // Return null on server and before mount to prevent hydration mismatch
+  if (!mounted || !isVisible) return null
 
   return (
     <button

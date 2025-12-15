@@ -4,6 +4,17 @@ import ClientsCorousel from '@/components/hero/ClientsCorousel';
 import CtaSection from '@/components/hero/Ctasection';
 import HeroSection from '@/components/hero/Hero';
 import ProductsSection from '@/components/hero/ProductsSection';
+import { generateMetadata as genMeta } from '@/lib/meta';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bharatengrs.com';
+
+export const metadata = genMeta({
+  title: 'Home',
+  description:
+    'Leading manufacturer of electrical control panels, MCC, PCC, and automation solutions. Trusted by leading industrial companies across India since 2005.',
+  url: '/',
+  keywords: ['electrical panels', 'control panels', 'MCC', 'PCC', 'industrial automation', 'panel manufacturers India'],
+});
 
 export default function HomePage() {
   return (

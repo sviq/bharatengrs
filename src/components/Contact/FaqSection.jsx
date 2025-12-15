@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FAQStructuredData } from '@/components/seo/PageStructuredData';
 
 export default function FaqSection() {
   const faqs = [
@@ -25,6 +26,7 @@ export default function FaqSection() {
 
   return (
     <section id="faq" className="py-20 bg-white">
+      <FAQStructuredData faqs={faqs} />
       <div className="max-w-4xl mx-auto px-4">
         <motion.h2
           className="text-3xl font-bold text-gray-900 mb-12 text-center"

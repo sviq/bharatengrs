@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaMobileAlt, FaTwitter } from 'react-icons/fa';
 import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6';
+import { companyInfo } from '@/data/company-info';
 
 const quickLinks = [
   { label: 'About Us', href: '/about' },
@@ -19,12 +20,6 @@ const productLinks = [
   { label: 'Control Panels', href: '/products#control-panels' },
 ];
 
-// const socialLinks = [
-//   { icon: <FaFacebookF />, href: '#' },
-//   { icon: <FaLinkedinIn />, href: '#' },
-//   { icon: <FaTwitter />, href: '#' },
-//   { icon: <FaInstagram />, href: '#' },
-// ];
 
 export default function Footer() {
   return (
@@ -91,8 +86,11 @@ export default function Footer() {
               {/* Phone */}
               <li className="flex items-center gap-2">
                 <FaPhone className="text-orange-500" />
-                <a href="tel:02652645006" className="hover:text-orange-500 transition-colors">
-                  0265 2645006
+                <a
+                  href={`tel:+91${companyInfo.phone.replace(/\s/g, '').replace(/^0/, '')}`}
+                  className="hover:text-orange-500 transition-colors"
+                >
+                  {companyInfo.phone}
                 </a>
               </li>
 

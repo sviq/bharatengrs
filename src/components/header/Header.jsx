@@ -19,9 +19,16 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname(); // ⭐ GET CURRENT ROUTE
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close mobile menu when clicking outside or on a link
   useEffect(() => {
+    if (!mounted) return;
+
     const handleClickOutside = (event) => {
       if (open && !event.target.closest('nav')) {
         setOpen(false);
@@ -30,27 +37,28 @@ export default function Header() {
 
     if (open) {
       document.addEventListener('click', handleClickOutside);
-      document.body.style.overflow = 'hidden';
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = 'hidden';
+      }
     } else {
-      document.body.style.overflow = 'unset';
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = 'unset';
+      }
     }
 
     return () => {
       document.removeEventListener('click', handleClickOutside);
-      document.body.style.overflow = 'unset';
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = 'unset';
+      }
     };
-  }, [open]);
+  }, [open, mounted]);
 
   const handleLinkClick = () => open && setOpen(false);
 
   return (
     <header className="w-full sticky top-0 z-[80] bg-white border-b-2 border-gray-300">
-      <motion.div
-        className="max-w-7xl mx-auto"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="max-w-7xl mx-auto">
         <nav className="flex items-center justify-between px-4">
           {/* Logo */}
           <motion.div className="flex-shrink-0 z-50">
@@ -66,8 +74,8 @@ export default function Header() {
           {/* DESKTOP MENU */}
           <motion.ul className="hidden lg:flex items-center gap-6 xl:gap-8 font-medium text-gray-700">
             {navLinks.map((item) => {
-              const isActive = pathname === item.path || pathname.startsWith(item.path + '/');
- // ⭐ CHECK ACTIVE STATE
+              // Only check active state after mount to prevent hydration mismatch
+              const isActive = mounted && pathname ? (pathname === item.path || pathname.startsWith(item.path + '/')) : false;
 
               return (
                 <motion.li key={item.path} className="relative pb-1 cursor-pointer">
@@ -81,11 +89,13 @@ export default function Header() {
                   </Link>
 
                   {/* Animated Underline */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-orange-500"
-                    animate={{ width: isActive ? '100%' : 0 }} // ⭐ ACTIVE UNDERLINE
-                    transition={{ duration: 0.25 }}
-                  />
+                  {mounted && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-0.5 bg-orange-500"
+                      animate={{ width: isActive ? '100%' : 0 }}
+                      transition={{ duration: 0.25 }}
+                    />
+                  )}
                 </motion.li>
               );
             })}
@@ -123,7 +133,8 @@ export default function Header() {
               <motion.div className="absolute left-0 right-0 bg-white shadow-lg lg:hidden">
                 <ul className="flex flex-col px-4 py-4 gap-2 font-medium text-gray-800">
                   {navLinks.map((item, index) => {
-                    const isActive = pathname === item.path || pathname.startsWith(item.path + '/');// ⭐ MOBILE ACTIVE STATE
+                    // Only check active state after mount to prevent hydration mismatch
+                    const isActive = mounted && pathname ? (pathname === item.path || pathname.startsWith(item.path + '/')) : false;
 
                     return (
                       <motion.li key={item.path} whileHover={{ x: 5 }}>
@@ -155,7 +166,7 @@ export default function Header() {
             </>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </header>
   );
 }

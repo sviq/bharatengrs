@@ -1,9 +1,22 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 
-const MotionDiv = dynamic(() => import('framer-motion').then((m) => m.motion.div), { ssr: false });
+const MotionDiv = dynamic(() => import('framer-motion').then((m) => m.motion.div), { 
+  ssr: false,
+  loading: () => (
+    <div className="flex gap-4 sm:gap-10 md:gap-14 lg:gap-16" style={{ width: 'max-content' }}>
+      {[...Array(11)].map((_, idx) => (
+        <div key={idx} className="flex-shrink-0 w-[150px] sm:w-[180px] md:w-[220px]">
+          <div className="p-8 h-40 w-full flex items-center justify-center">
+            <div className="w-full h-full bg-gray-200 animate-pulse rounded" />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+});
 
 const logos = [
   { src: '/images/hero/reliance.webp', alt: 'Reliance Industries' },
@@ -21,8 +34,36 @@ const logos = [
 
 const duplicated = [...logos, ...logos, ...logos];
 
+// Static fallback for SSR - matches client structure exactly
+const StaticCarousel = memo(() => (
+  <div className="flex gap-4 sm:gap-10 md:gap-14 lg:gap-16" style={{ width: 'max-content' }}>
+    {duplicated.map((logo, idx) => (
+      <div
+        key={idx}
+        className="flex-shrink-0 w-[150px] sm:w-[180px] md:w-[220px]"
+      >
+        <div className="p-8 h-40 w-full flex items-center justify-center">
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            loading="lazy"
+            className="max-w-full max-h-full object-contain opacity-90 transition-all duration-300"
+            style={{ filter: 'brightness(1.05) contrast(1.05)' }}
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+));
+
+StaticCarousel.displayName = 'StaticCarousel';
+
 function ClientsCarousel() {
-  const isClient = typeof window !== 'undefined';
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div className="w-full overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 py-8 px-4">
@@ -47,7 +88,7 @@ function ClientsCarousel() {
         {/* Carousel */}
         <div className="relative">
           <div className="overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm">
-            {isClient ? (
+            {mounted ? (
               <MotionDiv
                 className="flex gap-4 sm:gap-10 md:gap-14 lg:gap-16"
                 style={{ width: 'max-content' }}
@@ -74,20 +115,7 @@ function ClientsCarousel() {
                 ))}
               </MotionDiv>
             ) : (
-              // SSR Placeholder
-              <div className="flex gap-12 justify-center">
-                {logos.slice(0, 6).map((logo, idx) => (
-                  <div key={idx} className="flex-shrink-0 w-[150px] sm:w-[180px]">
-                    <div className="p-8 h-40 flex items-center justify-center">
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="max-w-full max-h-full object-contain opacity-70"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <StaticCarousel />
             )}
           </div>
         </div>

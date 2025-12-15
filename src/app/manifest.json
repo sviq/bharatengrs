@@ -1,6 +1,16 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Bharat Engrs - Electrical Engineering & Panel Manufacturing",
+  "short_name": "Bharat Engrs",
+  "description": "Leading manufacturer of electrical control panels, MCC, PCC, and automation solutions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#f97316",
+  "background_color": "#ffffff",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": ["business", "manufacturing", "engineering"],
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +25,31 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Products",
+      "short_name": "Products",
+      "description": "View our electrical control panels and solutions",
+      "url": "/products",
+      "icons": [
+        {
+          "src": "/web-app-manifest-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with us",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/web-app-manifest-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
