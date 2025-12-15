@@ -51,14 +51,14 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <nav className="flex items-center justify-between px-4 py-2">
+        <nav className="flex items-center justify-between px-4">
           {/* Logo */}
           <motion.div className="flex-shrink-0 z-50">
             <Link href="/" onClick={handleLinkClick}>
               <img
-                src="/logo.webp"
+                src="/logo-cropped.svg"
                 alt="Company Logo"
-                className="h-10 md:h-14 cursor-pointer object-contain"
+                className="h-12 md:h-20 cursor-pointer object-contain"
               />
             </Link>
           </motion.div>
