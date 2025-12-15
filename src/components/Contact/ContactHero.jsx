@@ -1,9 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaLocationDot } from 'public/icons/Icons';
 import { FaArrowRight } from 'react-icons/fa';
-import { FaArrowRightArrowLeft, FaMapLocationDot } from 'react-icons/fa6';
+import { useRef } from 'react';
 
 // Motion Variants
 const fadeUp = {
@@ -23,7 +22,27 @@ const fade = {
   show: { opacity: 1, transition: { duration: 1 } },
 };
 
-export default function ContactHero() {
+export default function ContactHero({firstNameRef}) {
+
+ const handleScrollToForm = () => {
+   if (!firstNameRef?.current) return;
+
+   // Wait for layout + paint
+   requestAnimationFrame(() => {
+     requestAnimationFrame(() => {
+       firstNameRef.current.scrollIntoView({
+         behavior: 'smooth',
+         block: 'center',
+       });
+
+       firstNameRef.current.focus({ preventScroll: true });
+     });
+   });
+ };
+
+
+
+
   return (
     <section
       id="hero-contact"
@@ -94,18 +113,19 @@ export default function ContactHero() {
 
           {/* BUTTONS */}
           <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-            <motion.a
+            <motion.button
+              type="button"
               whileHover={{ scale: 1.05, x: 4 }}
               transition={{ type: 'spring', stiffness: 220, damping: 15 }}
-              href="#contact-form"
+              onClick={handleScrollToForm}
               className="bg-orange-500 text-white px-8 py-4 font-semibold 
-                         hover:bg-white hover:text-orange-500 transition-all duration-300 
-                         rounded-sm shadow-xl shadow-orange-500/20 flex items-center gap-2"
+             hover:bg-white hover:text-orange-500 transition-all duration-300 
+             rounded-sm shadow-xl shadow-orange-500/20 flex items-center gap-2"
             >
-              Start Conversation <FaArrowRight className="inline mr-2" />
-            </motion.a>
+              Start Conversation <FaArrowRight />
+            </motion.button>
 
-            <motion.a
+            {/* <motion.a
               whileHover={{ scale: 1.03 }}
               transition={{ type: 'spring', stiffness: 220, damping: 12 }}
               href="#locations"
@@ -113,7 +133,7 @@ export default function ContactHero() {
                          hover:bg-gray-800 transition-all duration-300 rounded-sm flex items-center gap-2"
             >
               Find Locations
-            </motion.a>
+            </motion.a> */}
           </motion.div>
         </motion.div>
       </div>

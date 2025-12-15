@@ -1,7 +1,6 @@
 import ClientLogos from "@/components/clients/ClientLogos";
-import ClientsHeroContent from "@/components/clients/Hero"
 import TrustStatement from "@/components/clients/TrustStatement";
-import HeroWrapper from "@/components/products/HeroWrapper"
+import Hero from "@/components/common/Hero";
 
 export const metadata = {
   title: 'Our Clients - Bharat Engrs',
@@ -11,9 +10,11 @@ export const metadata = {
 export default function ClientsPage() {
   return (
     <main>
-      <HeroWrapper>
-        <ClientsHeroContent />
-      </HeroWrapper>
+      <Hero
+        badge="TRUSTED MANUFACTURER"
+        heading="OUR VALUED CLIENTS"
+        description="Trusted by leading industrial and engineering giants across India."
+      />
       <ClientLogos />
       <TrustStatement />
     </main>

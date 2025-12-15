@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { FaEnvelope, FaLocationDot, FaPaperPlane, FaPhone, FaWhatsapp } from 'react-icons/fa6';
 import { RiCustomerServiceFill } from 'react-icons/ri';
@@ -49,7 +49,7 @@ const cardVariant = {
 const buttonTap = { scale: 0.97 };
 const buttonHover = { scale: 1.02 };
 
-export default function ContactSection() {
+export default function ContactSection({ firstNameRef }) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -94,7 +94,7 @@ export default function ContactSection() {
   };
 
   return (
-    <main className="relative z-[60] mt-12 md:-mt-32 mb-20">
+    <main className="relative z-[60] mt-12 md:-mt-32 mb-20" id="contact-form">
       <motion.div
         className="max-w-7xl mx-auto px-4"
         variants={containerVariant}
@@ -106,7 +106,6 @@ export default function ContactSection() {
           {/* CONTACT FORM ------------------------------ */}
           <motion.div
             variants={cardVariant}
-            id="contact-form"
             className="lg:col-span-2 bg-white rounded-sm border-2 border-gray-200 
                        overflow-hidden border-t-4 border-t-orange-500"
           >
@@ -134,14 +133,17 @@ export default function ContactSection() {
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       First Name
                     </label>
+
                     <input
+                      ref={firstNameRef}
                       type="text"
-                      placeholder="John"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm 
-                                 focus:ring-2 focus:ring-orange-500 focus:border-transparent focus:outline-none"
+                      id="first-name"
                       name="firstName"
+                      placeholder="John"
                       value={formData.firstName}
                       onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm
+                     focus:ring-2 focus:ring-orange-500 focus:outline-none"
                     />
                   </div>
 

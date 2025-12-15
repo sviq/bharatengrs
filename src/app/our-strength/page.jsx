@@ -3,6 +3,7 @@ import ManufacturingFacilities from "../../components/our-strength/Manufacturing
 import OtherFacilities from "../../components/our-strength/OtherFacilities"
 import AssemblySection from "../../components/our-strength/AssemblySection"
 import CtPtManufacturing from "../../components/our-strength/CtPtManufacturing"
+import Hero from "@/components/common/Hero"
 
 export const metadata = {
   title: 'Our Strength - Bharat Engrs',
@@ -12,12 +13,16 @@ export const metadata = {
 export default function OurStrengthPage() {
   return (
     <main>
-      <StrengthHero />
+      <Hero
+        badge="INFRASTRUCTURE & CAPABILITY"
+        heading="Our Strength"
+        description="Bharat Engineers is empowered with robust manufacturing and testing facilities enabling precision engineering and unmatched product quality. We combine cutting-edge technology with decades of expertise."
+      />
       <ManufacturingFacilities />
       <OtherFacilities />
       <AssemblySection />
       <CtPtManufacturing />
     </main>
-  )
+  );
 }
 

@@ -1,4 +1,3 @@
-import RouteLoader from '@/components/common/RouteLoader'; // ⭐ ADD THIS
 import ScrollToTop from '@/components/floating/ScrollToTop';
 import WhatsAppButton from '@/components/floating/WhatsAppButton';
 import Footer from '@/components/footer/Footer';
@@ -15,12 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="sticky top-0 z-[80] bg-white w-full">
-          <Header />
-        </div>
-        <RouteLoader>
-          <main>{children}</main>
-        </RouteLoader>
+        <Header />
+
+        <main>{children}</main>
 
         <Footer />
         <WhatsAppButton />
