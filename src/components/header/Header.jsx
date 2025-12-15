@@ -57,16 +57,16 @@ export default function Header() {
   const handleLinkClick = () => open && setOpen(false);
 
   return (
-    <header className="w-full sticky top-0 z-[80] bg-white border-b-2 border-gray-300">
-      <div className="max-w-7xl mx-auto">
-        <nav className="flex items-center justify-between px-4">
+    <header className="w-full sticky top-0 z-[80] bg-white border-b-2 border-gray-300 h-20">
+      <div className="max-w-7xl mx-auto h-full">
+        <nav className="flex items-center justify-between px-4 h-full">
           {/* Logo */}
-          <motion.div className="flex-shrink-0 z-50">
-            <Link href="/" onClick={handleLinkClick}>
+          <motion.div className="flex-shrink-0 z-50 h-full flex items-center py-2">
+            <Link href="/" onClick={handleLinkClick} className="h-full flex items-center">
               <img
-                src="/logo-cropped.svg"
+                src="/logo-blue.svg"
                 alt="Company Logo"
-                className="h-12 md:h-20 cursor-pointer object-contain"
+                className="h-12 md:h-14 cursor-pointer object-contain"
               />
             </Link>
           </motion.div>

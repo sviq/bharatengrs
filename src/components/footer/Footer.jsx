@@ -37,7 +37,7 @@ export default function Footer() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <img src="/logo-footer.svg" alt="logo" className="h-16 cursor-pointer" />
+                <img src="/logo-white.svg" alt="logo" className="h-16 cursor-pointer" />
               </motion.div>
             </div>
             <p className="text-sm">
@@ -134,15 +134,15 @@ export default function Footer() {
           </div> */}
 
           {/* DESIGN CREDIT */}
-          <p className="text-sm mt-4 md:mt-0">
+          <p className="text-sm text-gray-400 mt-4 md:mt-0">
             Designed by{' '}
             <a
               href="https://www.sviqsolutions.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-500 hover:underline"
+              className="text-orange-500 hover:text-orange-400 transition-colors"
             >
-              SVIQ SOLUTIONS LLP
+              SVIQ Solutions
             </a>
           </p>
         </div>

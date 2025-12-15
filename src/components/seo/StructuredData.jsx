@@ -19,7 +19,7 @@ export function StructuredData() {
     '@type': 'Organization',
     name: 'Bharat Engrs',
     url: siteUrl,
-    logo: `${siteUrl}/logo-cropped.svg`,
+    logo: `${siteUrl}/logo-blue.svg`,
     description:
       companyInfo.description ||
       'Manufacturing of electrical switchboards, PCC, MCC, DBs, Busduct and instrument transformers. Trusted by leading industrial companies across India since 2005.',
