@@ -119,9 +119,13 @@ export default function ProductsSection() {
               Get detailed technical specifications for all our products.
             </p>
 
-            <button className="bg-white text-orange-500 cursor-pointer px-6 py-2 rounded font-semibold hover:bg-gray-100 transition-colors">
+            <a
+              href="/api/download"
+              className="bg-white text-orange-500 px-6 py-2 rounded font-semibold hover:bg-gray-100 transition-colors"
+              aria-label="Download product catalog PDF"
+            >
               Download PDF
-            </button>
+            </a>
           </MotionDiv>
         </MotionDiv>
       </div>
