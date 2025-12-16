@@ -20,6 +20,11 @@
   --orange-50: #fff7ed; /* light track */
 }
 
+.react-international-phone-country-selector {
+  height: 100%;
+}
+
+
 /* -------------------------- */
 /* WebKit Browsers (Chrome/Edge/Safari) */
 /* -------------------------- */
