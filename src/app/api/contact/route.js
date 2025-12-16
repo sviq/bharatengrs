@@ -144,7 +144,10 @@ export async function POST(req) {
     });
 
     await transporter.sendMail({
-      from: `"Website Contact" <${process.env.MAIL_USER}>`,
+      from: {
+        name: 'Bharat Engineers Website',
+        address: process.env.MAIL_USER,
+      },
       to: 'evoting0007@gmail.com',
       replyTo: sanitizedData.email,
       subject: `New Contact Form: ${sanitizedData.inquiry}`,
@@ -184,6 +187,50 @@ export async function POST(req) {
         </div>
       `,
     });
+
+    await transporter.sendMail({
+      from: `"Bharat Engineers" <${process.env.MAIL_USER}>`,
+      to: sanitizedData.email,
+      subject: 'Thank you for contacting Bharat Engineers',
+      html: `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #050f47;">
+        Thank you for reaching out, ${sanitizedData.firstName}!
+      </h2>
+
+      <p style="color: #374151; font-size: 15px;">
+        We have received your inquiry and our team will review it shortly.
+      </p>
+
+      <div style="background-color: #f9fafb; padding: 16px; border-radius: 6px; margin: 20px 0;">
+        <p style="margin: 6px 0;">
+          <strong>Inquiry Type:</strong> ${sanitizedData.inquiry}
+        </p>
+        <p style="margin: 6px 0;">
+          <strong>Phone:</strong> ${sanitizedData.phone}
+        </p>
+      </div>
+
+      <p style="color: #4b5563; line-height: 1.6;">
+        Our engineering team will get back to you within <strong>24 hours</strong>.
+        If your inquiry is urgent, feel free to contact us directly.
+      </p>
+
+      <p style="margin-top: 30px; color: #6b7280;">
+        Best regards,<br />
+        <strong>Bharat Engineers Pvt. Ltd.</strong><br />
+        Vadodara, Gujarat
+      </p>
+
+      <hr style="margin: 30px 0;" />
+
+      <p style="font-size: 12px; color: #9ca3af;">
+        This is an automated email. Please do not reply.
+      </p>
+    </div>
+  `,
+    });
+
 
     // 8. SUCCESS RESPONSE
     return NextResponse.json({ success: true });
