@@ -1,7 +1,6 @@
 import Hero from "@/components/common/Hero"
 import CapabilitiesSection from "@/components/gallery/CapabilitiesSection"
 import GallerySection from "@/components/gallery/GallarySection"
-import GallaryhHero from "@/components/gallery/Hero"
 import { generateMetadata as genMeta } from '@/lib/meta';
 
 export const metadata = genMeta({

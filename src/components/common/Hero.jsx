@@ -28,13 +28,13 @@ export default function Hero({ badge, heading, description }) {
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2070&q=80"
+            src="/banner/HERO_BANNER.webp"
             alt="Hero Background"
             fill
             className="object-cover opacity-20"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/5 to-transparent z-[1]" />
 
           <div
             className="absolute inset-0 opacity-10 

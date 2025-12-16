@@ -3,7 +3,6 @@ import CeoMessage from '@/components/AboutUs/CeoMessage';
 import WhyChooseUs from '@/components/AboutUs/WhyChooseUs';
 import Hero from '@/components/common/Hero';
 import { generateMetadata as genMeta } from '@/lib/meta';
-import { BreadcrumbStructuredData } from '@/components/seo/PageStructuredData';
 
 export const metadata = genMeta({
   title: 'About Us',
@@ -20,7 +19,7 @@ export default function AboutUsPage() {
   ];
 
   return (
-    <>
+    <main>
       {/* <BreadcrumbStructuredData items={breadcrumbs} /> */}
       <Hero
         badge="SINCE 2005"
@@ -30,6 +29,6 @@ export default function AboutUsPage() {
       <AboutStory />
       <CeoMessage />
       <WhyChooseUs />
-    </>
+    </main>
   );
 }
