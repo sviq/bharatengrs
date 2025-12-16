@@ -11,11 +11,11 @@ export default function Hero({ badge, heading, description }) {
 
   return (
     <LazyMotion features={domAnimation}>
-      <m.section
+      <section
         id="hero"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        // initial={{ opacity: 0, y: 20 }}
+        // animate={{ opacity: 1, y: 0 }}
+        // transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-900"
       >
         {/* Background Layer */}
@@ -79,7 +79,7 @@ export default function Hero({ badge, heading, description }) {
             </m.p>
           </div>
         </div>
-      </m.section>
+      </section>
     </LazyMotion>
   );
 }

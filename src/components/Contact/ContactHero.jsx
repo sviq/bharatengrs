@@ -49,13 +49,13 @@ export default function ContactHero({firstNameRef}) {
       className="relative py-20 md:pt-0 bg-slate-800 overflow-hidden h-[600px] flex items-center"
     >
       {/* BACKGROUND IMAGE */}
-      <motion.div className="absolute inset-0" variants={fade} initial="hidden" animate="show">
+      <div className="absolute inset-0">
         <img
           src="/images/about/About-hero.webp"
           alt="Industrial Background"
           className="w-full h-full object-cover grayscale opacity-40"
         />
-      </motion.div>
+      </div>
 
       {/* GRID OVERLAY */}
       {/* <motion.div
@@ -66,11 +66,9 @@ export default function ContactHero({firstNameRef}) {
       /> */}
 
       {/* GRADIENT OVERLAY */}
-      <motion.div
+      <div
         className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-20"
-        variants={fade}
-        initial="hidden"
-        animate="show"
+       
       />
 
       {/* CONTENT */}

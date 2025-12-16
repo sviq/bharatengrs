@@ -1,6 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { FaEnvelope, FaLocationDot, FaPaperPlane, FaPhone, FaWhatsapp } from 'react-icons/fa6';
 import { RiCustomerServiceFill } from 'react-icons/ri';
@@ -8,6 +10,7 @@ import { RiCustomerServiceFill } from 'react-icons/ri';
 import { motion } from 'framer-motion';
 import { toast, Toaster } from 'react-hot-toast';
 import { companyInfo } from '@/data/company-info';
+import { contactFormSchema } from '@/lib/validations';
 
 // -------------------------
 // Framer Motion Variants
@@ -52,54 +55,47 @@ const buttonTap = { scale: 0.97 };
 const buttonHover = { scale: 1.02 };
 
 export default function ContactSection({ firstNameRef }) {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    inquiry: '',
-    message: '',
-    consent: false,
-    website: '', // Honeypot field
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    mode: 'onBlur',
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      inquiry: 'Product Inquiry (Sales)',
+      message: '',
+      consent: false,
+      website: '', // Honeypot field
+    },
   });
-  const [loading, setLoading] = useState(false);
-  const [errors, setErrors] = useState({});
 
+  // Merge firstNameRef with register
+  const { ref: firstNameRegisterRef, ...firstNameRegisterRest } = register('firstName');
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-    
-    // Clear error for this field when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: undefined,
-      }));
+  useEffect(() => {
+    if (firstNameRef && firstNameRegisterRef) {
+      firstNameRegisterRef(firstNameRef.current);
     }
-  };
+  }, [firstNameRef, firstNameRegisterRef]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (loading) return; // prevent double click
-    setLoading(true);
-    setErrors({}); // Clear previous errors
-
+  const onSubmit = async (data) => {
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
 
       const result = await res.json();
 
       if (res.ok) {
-        toast.success('Message sent successfully! We\'ll get back to you within 24 hours.', {
+        toast.success("Message sent successfully! We'll get back to you within 24 hours.", {
           duration: 5000,
           position: 'top-center',
           style: {
@@ -113,30 +109,16 @@ export default function ContactSection({ firstNameRef }) {
             secondary: '#10b981',
           },
         });
-        
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          inquiry: '',
-          message: '',
-          consent: false,
-          website: '',
-        });
-        setErrors({});
-      } else if (res.status === 400 && result.errors) {
-        // Set validation errors from server
-        setErrors(result.errors);
-        toast.error('Please fix the errors in the form', {
-          duration: 4000,
-          position: 'top-center',
-        });
+
+        reset();
       } else if (res.status === 429) {
-        toast.error(`Too many requests. Please wait ${result.retryAfter || 60} seconds and try again.`, {
-          duration: 6000,
-          position: 'top-center',
-        });
+        toast.error(
+          `Too many requests. Please wait ${result.retryAfter || 60} seconds and try again.`,
+          {
+            duration: 6000,
+            position: 'top-center',
+          }
+        );
       } else {
         toast.error(result.message || 'Something went wrong. Please try again.', {
           duration: 4000,
@@ -148,11 +130,8 @@ export default function ContactSection({ firstNameRef }) {
         duration: 4000,
         position: 'top-center',
       });
-    } finally {
-      setLoading(false);
     }
   };
-
 
   return (
     <>
@@ -185,14 +164,12 @@ export default function ContactSection({ firstNameRef }) {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
-                  onSubmit={handleSubmit}
+                  onSubmit={handleSubmit(onSubmit)}
                 >
                   {/* HONEYPOT FIELD - Hidden from users, visible to bots */}
                   <input
                     type="text"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleChange}
+                    {...register('website')}
                     autoComplete="off"
                     tabIndex="-1"
                     style={{
@@ -216,18 +193,25 @@ export default function ContactSection({ firstNameRef }) {
                       </label>
 
                       <input
-                        ref={firstNameRef}
+                        ref={(e) => {
+                          firstNameRegisterRef(e);
+                          if (firstNameRef) {
+                            firstNameRef.current = e;
+                          }
+                        }}
+                        {...firstNameRegisterRest}
                         type="text"
                         id="first-name"
-                        name="firstName"
                         placeholder="John"
-                        value={formData.firstName}
-                        onChange={handleChange}
                         className={`w-full px-4 py-3 bg-gray-50 border rounded-sm focus:ring-2 focus:outline-none
-                          ${errors.firstName ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-orange-500'}`}
+                          ${
+                            errors.firstName
+                              ? 'border-red-500 focus:ring-red-500'
+                              : 'border-gray-200 focus:ring-orange-500'
+                          }`}
                       />
                       {errors.firstName && (
-                        <p className="mt-1 text-sm text-red-600">{errors.firstName[0]}</p>
+                        <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
                       )}
                     </div>
 
@@ -236,16 +220,18 @@ export default function ContactSection({ firstNameRef }) {
                         Last Name
                       </label>
                       <input
+                        {...register('lastName')}
                         type="text"
                         placeholder="Doe"
                         className={`w-full px-4 py-3 bg-gray-50 border rounded-sm focus:ring-2 focus:outline-none
-                          ${errors.lastName ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-orange-500'}`}
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
+                          ${
+                            errors.lastName
+                              ? 'border-red-500 focus:ring-red-500'
+                              : 'border-gray-200 focus:ring-orange-500'
+                          }`}
                       />
                       {errors.lastName && (
-                        <p className="mt-1 text-sm text-red-600">{errors.lastName[0]}</p>
+                        <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
                       )}
                     </div>
                   </motion.div>
@@ -260,16 +246,18 @@ export default function ContactSection({ firstNameRef }) {
                         Work Email
                       </label>
                       <input
+                        {...register('email')}
                         type="email"
                         placeholder="john@company.com"
                         className={`w-full px-4 py-3 bg-gray-50 border rounded-sm focus:ring-2 focus:outline-none
-                          ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-orange-500'}`}
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
+                          ${
+                            errors.email
+                              ? 'border-red-500 focus:ring-red-500'
+                              : 'border-gray-200 focus:ring-orange-500'
+                          }`}
                       />
                       {errors.email && (
-                        <p className="mt-1 text-sm text-red-600">{errors.email[0]}</p>
+                        <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
                       )}
                     </div>
 
@@ -278,16 +266,18 @@ export default function ContactSection({ firstNameRef }) {
                         Phone Number
                       </label>
                       <input
+                        {...register('phone')}
                         type="tel"
                         placeholder="+91 98765 43210"
                         className={`w-full px-4 py-3 bg-gray-50 border rounded-sm focus:ring-2 focus:outline-none
-                          ${errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-orange-500'}`}
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
+                          ${
+                            errors.phone
+                              ? 'border-red-500 focus:ring-red-500'
+                              : 'border-gray-200 focus:ring-orange-500'
+                          }`}
                       />
                       {errors.phone && (
-                        <p className="mt-1 text-sm text-red-600">{errors.phone[0]}</p>
+                        <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
                       )}
                     </div>
                   </motion.div>
@@ -298,11 +288,13 @@ export default function ContactSection({ firstNameRef }) {
                       Inquiry Type
                     </label>
                     <select
+                      {...register('inquiry')}
                       className={`w-full px-4 py-3 bg-gray-50 border rounded-sm cursor-pointer focus:ring-2 appearance-none focus:outline-none
-                        ${errors.inquiry ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-orange-500'}`}
-                      name="inquiry"
-                      value={formData.inquiry}
-                      onChange={handleChange}
+                        ${
+                          errors.inquiry
+                            ? 'border-red-500 focus:ring-red-500'
+                            : 'border-gray-200 focus:ring-orange-500'
+                        }`}
                     >
                       <option>Product Inquiry (Sales)</option>
                       <option>Technical Support</option>
@@ -311,7 +303,7 @@ export default function ContactSection({ firstNameRef }) {
                       <option>Other</option>
                     </select>
                     {errors.inquiry && (
-                      <p className="mt-1 text-sm text-red-600">{errors.inquiry[0]}</p>
+                      <p className="mt-1 text-sm text-red-600">{errors.inquiry.message}</p>
                     )}
                   </motion.div>
 
@@ -321,16 +313,18 @@ export default function ContactSection({ firstNameRef }) {
                       Project Details
                     </label>
                     <textarea
+                      {...register('message')}
                       rows="4"
                       placeholder="Tell us about your requirements..."
                       className={`w-full px-4 py-3 bg-gray-50 border rounded-sm focus:ring-2 focus:outline-none
-                        ${errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-orange-500'}`}
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
+                        ${
+                          errors.message
+                            ? 'border-red-500 focus:ring-red-500'
+                            : 'border-gray-200 focus:ring-orange-500'
+                        }`}
                     />
                     {errors.message && (
-                      <p className="mt-1 text-sm text-red-600">{errors.message[0]}</p>
+                      <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
                     )}
                   </motion.div>
 
@@ -338,33 +332,39 @@ export default function ContactSection({ firstNameRef }) {
                   <motion.div variants={cardVariant}>
                     <div className="flex items-start gap-3">
                       <input
+                        {...register('consent')}
                         type="checkbox"
                         className={`mt-1 w-4 h-4 border-gray-300 rounded
-                          ${errors.consent ? 'border-red-500 text-red-600 focus:ring-red-500' : 'text-orange-500 focus:ring-orange-500'}`}
-                        name="consent"
-                        checked={formData.consent}
-                        onChange={handleChange}
+                          ${
+                            errors.consent
+                              ? 'border-red-500 text-red-600 focus:ring-red-500'
+                              : 'text-orange-500 focus:ring-orange-500'
+                          }`}
                       />
                       <label className="text-sm text-gray-500">
                         I agree to the processing of my personal data.
                       </label>
                     </div>
                     {errors.consent && (
-                      <p className="mt-1 text-sm text-red-600">{errors.consent[0]}</p>
+                      <p className="mt-1 text-sm text-red-600">{errors.consent.message}</p>
                     )}
                   </motion.div>
 
                   {/* SUBMIT BUTTON */}
                   <motion.button
                     type="submit"
-                    disabled={loading}
-                    whileHover={!loading ? buttonHover : undefined}
-                    whileTap={!loading ? buttonTap : undefined}
+                    disabled={isSubmitting}
+                    whileHover={!isSubmitting ? buttonHover : undefined}
+                    whileTap={!isSubmitting ? buttonTap : undefined}
                     className={`w-full font-bold py-4 px-8 rounded-sm shadow-lg
       flex justify-center items-center gap-2 transition-all duration-300
-      ${loading ? 'bg-orange-500 text-white cursor-not-allowed' : 'bg-[#050f47] text-white hover:bg-orange-500'}`}
+      ${
+        isSubmitting
+          ? 'bg-orange-500 text-white cursor-not-allowed'
+          : 'bg-[#050f47] text-white hover:bg-orange-500'
+      }`}
                   >
-                    {loading ? (
+                    {isSubmitting ? (
                       <>
                         <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
                           <circle

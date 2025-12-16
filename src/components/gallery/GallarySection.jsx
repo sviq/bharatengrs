@@ -62,12 +62,12 @@ export default function GallerySection() {
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-4">
                 <h3 className="font-display text-xl font-bold text-industrial-dark mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                <div className="accent-line h-0.5 bg-orange-500" />
+                <p className="text-gray-600 text-sm mb-2">{item.description}</p>
+                {/* <div className="accent-line h-0.5 bg-blue-500" /> */}
               </div>
             </div>
           ))}
