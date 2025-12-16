@@ -13,10 +13,17 @@ export default function Hero({ badge, heading, description }) {
     <LazyMotion features={domAnimation}>
       <section
         id="hero"
-        // initial={{ opacity: 0, y: 20 }}
-        // animate={{ opacity: 1, y: 0 }}
-        // transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-900"
+        className="
+    relative
+    pt-[calc(80px+2rem)]
+    pb-20
+    lg:pt-[calc(80px+4rem)]
+    lg:pb-28
+    min-h-[calc(100svh-80px)]
+    lg:min-h-[65vh]
+    overflow-hidden
+    bg-slate-900
+  "
       >
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">

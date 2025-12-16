@@ -99,7 +99,7 @@ export default function RootLayout({ children }) {
         <StructuredData />
         <Header />
 
-        <main>{children}</main>
+        <main className="pt-20">{children}</main>
 
         <Footer />
         <WhatsAppButton />

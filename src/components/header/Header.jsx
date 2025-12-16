@@ -57,7 +57,7 @@ export default function Header() {
   const handleLinkClick = () => open && setOpen(false);
 
   return (
-    <header className="w-full sticky top-0 z-[80] bg-white border-b-2 border-gray-300 h-20">
+    <header className="w-full fixed top-0 z-[80] bg-white border-b-2 border-gray-300 h-20">
       <div className="max-w-7xl mx-auto h-full">
         <nav className="flex items-center justify-between px-4 h-full">
           {/* Logo */}

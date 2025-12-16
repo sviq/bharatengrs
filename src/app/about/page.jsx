@@ -20,8 +20,8 @@ export default function AboutUsPage() {
   ];
 
   return (
-    <main>
-      <BreadcrumbStructuredData items={breadcrumbs} />
+    <>
+      {/* <BreadcrumbStructuredData items={breadcrumbs} /> */}
       <Hero
         badge="SINCE 2005"
         heading="Engineering Excellence"
@@ -30,6 +30,6 @@ export default function AboutUsPage() {
       <AboutStory />
       <CeoMessage />
       <WhyChooseUs />
-    </main>
+    </>
   );
 }
