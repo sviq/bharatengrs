@@ -52,9 +52,9 @@ export default function OtherFacilities() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden shadow-lg group">
+              <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden group">
                 <Image
-                  src="https://images.unsplash.com/photo-1531685250784-7569952593d2?auto=format&fit=crop&w=1600&q=80"
+                  src="/images/ourStrength/workflow.webp"
                   alt="Factory Floor"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
