@@ -27,7 +27,7 @@ export const contactFormSchema = z.object({
     .min(1, 'Phone is required')
     .regex(/^[\d\s\-\+\(\)]+$/, 'Phone contains invalid characters')
     .refine((val) => val.replace(/\D/g, '').length >= 10, 'Phone number must be at least 10 digits')
-    .refine((val) => val.replace(/\D/g, '').length <= 10, 'Phone number too long'),
+    .refine((val) => val.replace(/\D/g, '').length <= 13, 'Phone number too long'),
 
   inquiry: z.string().min(1, 'Inquiry type is required').max(100, 'Inquiry type too long'),
 
