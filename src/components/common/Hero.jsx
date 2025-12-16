@@ -19,7 +19,7 @@ export default function Hero({ badge, heading, description }) {
     pb-20
     lg:pt-[calc(80px+4rem)]
     lg:pb-28
-    min-h-[55vh]
+    min-h-[60vh]
     lg:min-h-[65vh]
     overflow-hidden
     bg-slate-900

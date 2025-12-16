@@ -10,7 +10,7 @@ export default function MapEmbed() {
     // 🔐 Safety fallback: hide loader after 3s no matter what
     const timeout = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 6000);
 
     return () => clearTimeout(timeout);
   }, []);
