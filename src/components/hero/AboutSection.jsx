@@ -35,15 +35,11 @@ export default function AboutSection() {
               {/* LEFT COLUMN */}
               <div className="space-y-4 mt-4">
                 {/* Image 1 */}
-                <div className="h-48 rounded-lg overflow-hidden shadow-lg relative">
-                  <Image
-                    src="/images/hero/about1.webp"
-                    alt="Engineer working on equipment"
-                    fill
-                    priority={false}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 hover:scale-110"
-                  />
+                <div className="h-48 rounded-lg overflow-hidden shadow-lg relative bg-gray-100 flex items-center justify-center">
+                  <div className="text-center p-6 ">
+                    <h3 className="text-4xl font-bold text-orange-500">50+</h3>
+                    <p className="text-gray-600 font-medium">Major Client</p>
+                  </div>
                 </div>
 
                 {/* Counter Box */}
@@ -58,21 +54,25 @@ export default function AboutSection() {
               {/* RIGHT COLUMN */}
               <div className="space-y-4">
                 {/* Image 2 */}
-                <div className="h-60 rounded-lg overflow-hidden shadow-lg relative">
-                  <Image
+                <div className="h-60 rounded-lg overflow-hidden shadow-lg relative flex items-center justify-center bg-gray-100">
+                  {/* <Image
                     src="/images/hero/about2.webp"
                     alt="Electrical control panel"
                     fill
                     priority={false}
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 hover:scale-110"
-                  />
+                  /> */}
+                  <div className="text-center p-6 ">
+                    <h3 className="text-4xl font-bold text-orange-500">500+</h3>
+                    <p className="text-gray-600 font-medium">Project Delivered</p>
+                  </div>
                 </div>
 
                 {/* Quote Box */}
-                <div className="h-48 rounded-lg shadow-lg bg-[#0F172A] p-6 flex flex-col justify-center">
+                <div className="h-48 rounded-lg shadow-lg bg-[#050f47] p-6 flex flex-col justify-center">
                   <div className="text-orange-500 text-4xl mb-2">“</div>
-                  <p className="text-gray-300 text-sm italic">
+                  <p className="text-gray-100 text-sm italic">
                     "Commitment towards Product Quality & Delivery"
                   </p>
                 </div>

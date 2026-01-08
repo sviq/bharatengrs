@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
+import Image from 'next/image';
 import { FaFillDrip, FaIndustry } from 'react-icons/fa6';
 
 export default function OtherFacilities() {

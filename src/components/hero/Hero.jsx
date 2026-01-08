@@ -167,11 +167,9 @@
 
 'use client';
 
-
 import dynamic from 'next/dynamic';
 import { FaCircleCheck } from 'public/icons/Icons';
 import Link from 'next/link';
-
 
 // Framer Motion loaded only on client → MUCH better performance
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
@@ -182,7 +180,7 @@ const features = ['High Quality', 'Competitive Price', 'Easy Maintenance'];
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative h-[700px] flex items-center bg-black overflow-hidden">
+    <section id="hero" className="relative h-[700px] flex items-center bg-black/60 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -193,7 +191,7 @@ const HeroSection = () => {
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/5 to-transparent z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/5 to-transparent z-[1]" />
 
       {/* CONTENT WRAPPER */}
       <div className="container max-w-7xl px-4 mx-auto relative z-[2] flex flex-col md:flex-row items-center">
@@ -205,7 +203,7 @@ const HeroSection = () => {
           className="w-full md:w-2/3  text-white"
         >
           {/* Badge */}
-          <MotionDiv
+          {/* <MotionDiv
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -214,7 +212,7 @@ const HeroSection = () => {
             <span className="text-xs font-medium tracking-wide text-orange-400 uppercase">
               ERDA Approved – Certificate No: T-0071
             </span>
-          </MotionDiv>
+          </MotionDiv> */}
 
           {/* Main Heading */}
           <MotionDiv
@@ -241,30 +239,7 @@ const HeroSection = () => {
           </MotionDiv>
 
           {/* CTA Buttons */}
-          <MotionDiv
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.65 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            {/* EXPLORE PRODUCTS BUTTON */}
-            <Link
-              href="/products"
-              className="px-8 py-4 bg-orange-500 text-white font-bold rounded hover:bg-orange-600
-               transition flex items-center justify-center gap-2 group"
-            >
-              Explore Products
-            </Link>
-
-            {/* CONTACT SALES BUTTON */}
-            <Link
-              href="/contact"
-              className="px-8 py-4 border border-white/30 text-white font-bold rounded hover:bg-white/10 
-               transition flex items-center justify-center backdrop-blur-sm"
-            >
-              Contact Sales
-            </Link>
-          </MotionDiv>
+         
 
           {/* Feature Icons */}
           <MotionDiv

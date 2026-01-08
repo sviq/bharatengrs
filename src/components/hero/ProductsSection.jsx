@@ -2,8 +2,9 @@
 
 import { products } from '@/data/products';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 import { PdfIcon } from 'public/icons/Icons';
+import { useState } from 'react';
+import RequestPdfModal from './ContactPDFModel';
 
 // Optimize performance: dynamically load framer-motion
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
@@ -31,6 +32,8 @@ const staggerContainer = {
 };
 
 export default function ProductsSection() {
+  const [pdfModalOpen, setPdfModalOpen] = useState(false);
+
   return (
     <section id="products" className="py-24 bg-slate-50 relative overflow-hidden">
       {/* Soft Background Pattern */}
@@ -92,12 +95,12 @@ export default function ProductsSection() {
 
                 <p className="text-gray-500 text-sm mb-4">{product.description}</p>
 
-                <Link
+                {/* <Link
                   href="/products"
                   className="inline-flex text-orange-500 items-center text-sm font-semibold hover:text-orange-500"
                 >
                   View Specifications →
-                </Link>
+                </Link> */}
               </div>
             </MotionDiv>
           ))}
@@ -119,16 +122,19 @@ export default function ProductsSection() {
               Get detailed technical specifications for all our products.
             </p>
 
-            <a
-              href="/assets/Bharat_profile.pdf"
+            <button
+              // href="/assets/Bharat_profile.pdf"
+              onClick={() => setPdfModalOpen(true)}
               className="bg-white text-orange-500 px-6 py-2 rounded font-semibold hover:bg-gray-100 transition-colors"
               aria-label="Download product catalog PDF"
             >
               Download PDF
-            </a>
+            </button>
           </MotionDiv>
         </MotionDiv>
       </div>
+
+      <RequestPdfModal open={pdfModalOpen} onClose={() => setPdfModalOpen(false)} />
     </section>
   );
 }

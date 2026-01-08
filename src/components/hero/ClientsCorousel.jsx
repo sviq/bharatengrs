@@ -2,6 +2,8 @@
 
 import dynamic from 'next/dynamic';
 import { memo, useState, useEffect } from 'react';
+// import ClientGrid from '../clients/ClientGrid';
+import ClientLogos from '../clients/ClientLogos';
 
 const MotionDiv = dynamic(() => import('framer-motion').then((m) => m.motion.div), { 
   ssr: false,
@@ -32,34 +34,35 @@ const logos = [
   { src: '/images/hero/Aditya.webp', alt: 'Aditya Birla Group' },
 ];
 
-const duplicated = [...logos, ...logos, ...logos];
+// const duplicated = [...logos, ...logos, ...logos];
 
-// Static fallback for SSR - matches client structure exactly
-const StaticCarousel = memo(() => (
-  <div className="flex gap-4 sm:gap-10 md:gap-14 lg:gap-16" style={{ width: 'max-content' }}>
-    {duplicated.map((logo, idx) => (
-      <div
-        key={idx}
-        className="flex-shrink-0 w-[150px] sm:w-[180px] md:w-[220px]"
-      >
-        <div className="p-8 h-40 w-full flex items-center justify-center">
-          <img
-            src={logo.src}
-            alt={logo.alt}
-            loading="lazy"
-            className="max-w-full max-h-full object-contain opacity-90 transition-all duration-300"
-            style={{ filter: 'brightness(1.05) contrast(1.05)' }}
-          />
-        </div>
-      </div>
-    ))}
-  </div>
-));
+// // Static fallback for SSR - matches client structure exactly
+// const StaticCarousel = memo(() => (
+//   <div className="flex gap-4 sm:gap-10 md:gap-14 lg:gap-16" style={{ width: 'max-content' }}>
+//     {duplicated.map((logo, idx) => (
+//       <div
+//         key={idx}
+//         className="flex-shrink-0 w-[150px] sm:w-[180px] md:w-[220px]"
+//       >
+//         <div className="p-8 h-40 w-full flex items-center justify-center">
+//           <img
+//             src={logo.src}
+//             alt={logo.alt}
+//             loading="lazy"
+//             className="max-w-full max-h-full object-contain opacity-90 transition-all duration-300"
+//             style={{ filter: 'brightness(1.05) contrast(1.05)' }}
+//           />
+//         </div>
+//       </div>
+//     ))}
+//   </div>
+// ));
 
-StaticCarousel.displayName = 'StaticCarousel';
+// StaticCarousel.displayName = 'StaticCarousel';
 
 function ClientsCarousel() {
   const [mounted, setMounted] = useState(false);
+  
 
   useEffect(() => {
     setMounted(true);
@@ -86,7 +89,7 @@ function ClientsCarousel() {
         </div>
 
         {/* Carousel */}
-        <div className="relative">
+        {/* <div className="relative">
           <div className="overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm">
             {mounted ? (
               <MotionDiv
@@ -118,7 +121,8 @@ function ClientsCarousel() {
               <StaticCarousel />
             )}
           </div>
-        </div>
+        </div> */}
+        <ClientLogos />
       </div>
     </div>
   );

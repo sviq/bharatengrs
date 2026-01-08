@@ -111,13 +111,13 @@ const ProductCard = memo(({ product, index }) => (
 
       <p className="text-gray-600 text-sm mb-4">{product.description}</p>
 
-      <Link
+      {/* <Link
         href="/products"
         className="inline-flex hover:text-orange-500 items-center font-semibold text-sm 
                    hover:translate-x-1 transition-transform"
       >
         View Specifications →
-      </Link>
+      </Link> */}
     </div>
   </MotionDiv>
 ));
