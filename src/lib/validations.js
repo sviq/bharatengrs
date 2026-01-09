@@ -42,6 +42,40 @@ export const contactFormSchema = z.object({
   website: z.string().max(0).optional(),
 });
 
+export const catalogRequestSchema = z.object({
+  firstName: z
+    .string()
+    .min(1, 'First name is required')
+    .max(50, 'First name too long')
+    .regex(/^[a-zA-Z\s'-]+$/, 'First name contains invalid characters')
+    .trim(),
+
+  lastName: z
+    .string()
+    .min(1, 'Last name is required')
+    .max(50, 'Last name too long')
+    .regex(/^[a-zA-Z\s'-]+$/, 'Last name contains invalid characters')
+    .trim(),
+
+  email: z
+    .string()
+    .min(1, 'Email is required')
+    .email('Invalid email address')
+    .max(100, 'Email too long')
+    .toLowerCase()
+    .trim(),
+
+  phone: z
+    .string()
+    .optional()
+    .refine((val) => !val || /^[\d\s\-\+\(\)]+$/.test(val), 'Phone contains invalid characters')
+    .refine(
+      (val) => !val || val.replace(/\D/g, '').length >= 10,
+      'Phone number must be at least 10 digits'
+    )
+    .refine((val) => !val || val.replace(/\D/g, '').length <= 13, 'Phone number too long'),
+});
+
 // Sanitize function to prevent email header injection
 export function sanitizeForEmail(input) {
   if (typeof input !== 'string') return '';
