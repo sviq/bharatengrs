@@ -8,8 +8,9 @@ import { FaSprayCanSparkles, FaTemperatureHigh } from 'react-icons/fa6';
 const facilities = [
   {
     title: 'CNC Turret Punch Press',
-    image:
-      'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80',
+    // image:
+    //   'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ourStrength/image1.jpg',
     badge: 'AMADA',
     specs: [
       { label: 'Capacity:', value: '200KN' },
@@ -20,8 +21,9 @@ const facilities = [
   },
   {
     title: 'CNC Bending Machine',
-    image:
-      'https://images.unsplash.com/photo-1565439398532-39c642a8b9e2?auto=format&fit=crop&w=800&q=80',
+    // image:
+    //   'https://images.unsplash.com/photo-1565439398532-39c642a8b9e2?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ourStrength/image2.jpg',
     badge: 'AMADA',
     specs: [
       { label: 'Type:', value: 'RGM2' },
@@ -31,8 +33,9 @@ const facilities = [
   },
   {
     title: 'Hydraulic Bending Machine',
-    image:
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+    // image:
+    //   'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ourStrength/image3.jpg',
     badge: 'WELDOR',
     specs: [
       { label: 'Capacity:', value: '80T' },
@@ -42,8 +45,9 @@ const facilities = [
   },
   {
     title: 'Hydraulic Shearing Machine',
-    image:
-      'https://images.unsplash.com/photo-1589792923962-537704632910?auto=format&fit=crop&w=800&q=80',
+    // image:
+    //   'https://images.unsplash.com/photo-1589792923962-537704632910?auto=format&fit=crop&w=800&q=80',
+    image: '/images/ourStrength/image4.jpg',
     badge: 'WELDOR',
     specs: [
       { label: 'Capacity:', value: '4.0mm Sheet' },
@@ -51,28 +55,42 @@ const facilities = [
       { label: 'Speed:', value: '1440 RPM' },
     ],
   },
-];
-
-// Icon Cards (Powder Coating + Oven)
-const iconCards = [
   {
     title: 'Powder Coating Spray Booth',
-    icon: (
-      <FaSprayCanSparkles className="text-6xl text-gray-300 group-hover:text-orange-500 transition-colors" />
-    ),
+
+    // icon: (
+    //   <FaSprayCanSparkles className="text-6xl text-gray-300 group-hover:text-orange-500 transition-colors" />
+    // ),
+    image: '/images/ourStrength/image5.jpg',
     specs: [{ label: 'Dimensions (LxWxH):', value: '2700mm x 1900mm x 3000mm' }],
   },
   {
     title: 'Powder Coating Oven',
-    icon: (
-      <FaTemperatureHigh className="text-6xl text-gray-300 group-hover:text-orange-500 transition-colors" />
-    ),
+    // icon: (
+    //   <FaTemperatureHigh className="text-6xl text-gray-300 group-hover:text-orange-500 transition-colors" />
+    // ),
+    image: '/images/ourStrength/image6..webp',
     specs: [
       { label: 'Max Temp:', value: '200°C', highlight: true },
       { label: 'Dimensions (LxWxH):', value: '3000mm x 2300mm x 2400mm' },
     ],
   },
 ];
+
+// Icon Cards (Powder Coating + Oven)
+// const iconCards = [
+  
+//   {
+//     title: 'Powder Coating Oven',
+//     icon: (
+//       <FaTemperatureHigh className="text-6xl text-gray-300 group-hover:text-orange-500 transition-colors" />
+//     ),
+//     specs: [
+//       { label: 'Max Temp:', value: '200°C', highlight: true },
+//       { label: 'Dimensions (LxWxH):', value: '3000mm x 2300mm x 2400mm' },
+//     ],
+//   },
+// ];
 
 export default function ManufacturingFacilities() {
   return (
@@ -101,9 +119,9 @@ export default function ManufacturingFacilities() {
             ))}
 
             {/* Icon Cards */}
-            {iconCards.map((item, i) => (
+            {/* {iconCards.map((item, i) => (
               <IconFacilityCard key={`icon-${i}`} {...item} />
-            ))}
+            ))} */}
           </div>
         </div>
       </section>
@@ -129,11 +147,11 @@ function FacilityCard({ title, image, badge, specs }) {
           src={image}
           alt={title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-scale-down  group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">
+        {/* <div className="absolute top-4 right-4 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">
           {badge}
-        </div>
+        </div> */}
       </div>
 
       <div className="p-6 flex-grow">

@@ -1,6 +1,6 @@
 'use client';
 
-import { galleryItems } from '@/data/gallaryItems';
+import { galleryItems2 } from '@/data/gallaryItems';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -40,7 +40,7 @@ export default function GallerySection() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryItems.map((item, index) => (
+          {galleryItems2.map((item, index) => (
             <div
               key={index}
               className="gallery-card group cursor-pointer bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -81,7 +81,7 @@ export default function GallerySection() {
           >
             <div className="relative w-[90%] max-w-5xl h-[80vh]">
               <Image
-                src={galleryItems[lightboxIndex].img}
+                src={galleryItems2[lightboxIndex].img}
                 alt="Expanded View"
                 fill
                 className="object-contain"

@@ -9,16 +9,18 @@ export default function CtPtManufacturing() {
       title: 'Transformer Winding Machine',
       description:
         'High-precision automated winding for CT/PT transformers ensuring consistent quality and electrical characteristics.',
-      image:
-        'https://images.unsplash.com/photo-1513828583688-c52646db42da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      // image:
+      //   'https://images.unsplash.com/photo-1513828583688-c52646db42da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: '/images/ourStrength/image7.avif',
       icon: <FaCircleNotch className="text-2xl text-orange-500" />,
     },
     {
       title: 'Vacuum Epoxy Resin Casting',
       description:
         'Advanced vacuum casting plant for superior insulation and environmental protection of transformers.',
-      image:
-        'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      // image:
+      //   'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: '/images/ourStrength/image8.jpg',
       icon: <FaFlask className="text-2xl text-orange-500" />,
     },
   ];
@@ -64,11 +66,11 @@ export default function CtPtManufacturing() {
                     src={item.image}
                     alt={item.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-scale-down group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent"></div>
                 </div>
 
                 {/* CONTENT */}

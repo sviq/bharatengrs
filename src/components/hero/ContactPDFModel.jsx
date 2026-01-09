@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaLock, FaPaperPlane, FaTimes } from 'react-icons/fa';
-import { toast } from 'sonner';
+import { toast, Toaster } from 'react-hot-toast';
 
 const cardVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -172,6 +172,7 @@ export default function ContactFormModal({ open, onClose }) {
 
   return (
     <AnimatePresence>
+      <Toaster />
       <motion.div
         className="fixed inset-0 z-[999] bg-black/60
                    flex items-center justify-center p-4"

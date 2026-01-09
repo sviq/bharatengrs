@@ -70,3 +70,76 @@ export const galleryItems = [
     icon: <i className="fa-solid fa-hammer"></i>,
   },
 ];
+
+export const galleryItems2 = [
+  {
+    title: 'PCC Panel',
+    description: 'Power Control Center with advanced circuit protection',
+    category: 'POWER',
+    img: '/images/gallery/gallery1.jpg',
+    icon: <i className="fa-solid fa-bolt"></i>,
+  },
+  {
+    title: 'Power Distribution Board',
+    description: 'Efficient power distribution with load management',
+    category: 'DISTRIBUTION',
+    img: '/images/gallery/gallery2.jpg',
+    icon: <i className="fa-solid fa-plug"></i>,
+  },
+  {
+    title: 'HT Panel',
+    description: 'High Tension panel for industrial power management',
+    category: 'HIGH VOLTAGE',
+    img: '/images/gallery/gallery3.jpg',
+    icon: <i className="fa-solid fa-bolt-lightning"></i>,
+  },
+  {
+    title: 'Drawout Panel',
+    description: 'Modular design for easy maintenance and flexibility',
+    category: 'MODULAR',
+    img: '/images/gallery/gallery4.jpg',
+    icon: <i className="fa-solid fa-gears"></i>,
+  },
+  {
+    title: 'APFC Panel',
+    description: 'Automatic Power Factor Correction for energy optimization',
+    category: 'EFFICIENCY',
+    img: '/images/gallery/gallery5.jpg',
+    icon: <i className="fa-solid fa-chart-line"></i>,
+  },
+  {
+    title: 'HVAC Panel',
+    description: 'Climate control and ventilation system management',
+    category: 'CLIMATE',
+    img: '/images/gallery/gallery6.jpg',
+    icon: <i className="fa-solid fa-wind"></i>,
+  },
+  {
+    title: 'Plug & Socket DB',
+    description: 'Distribution board with integrated power outlets',
+    category: 'CONNECTIVITY',
+    img: '/images/gallery/gallery7.jpg',
+    icon: <i className="fa-solid fa-plug-circle-bolt"></i>,
+  },
+  {
+    title: 'Wall Mounted Panel',
+    description: 'Space-efficient wall-mounted control solutions',
+    category: 'COMPACT',
+    img: '/images/gallery/gallery8.jpg',
+    icon: <i className="fa-solid fa-building"></i>,
+  },
+  {
+    title: "HT/LT CT's, PT's & Control Transformers",
+    description: 'Precision measurement and control transformers',
+    category: 'PRECISION',
+    img: '/images/gallery/gallery9.jpg',
+    icon: <i className="fa-solid fa-gauge"></i>,
+  },
+  {
+    title: 'Precise Sheet Metal Fabrication Job',
+    description: 'Custom metal fabrication with precision engineering',
+    category: 'FABRICATION',
+    img: '/images/gallery/gallery10.jpg',
+    icon: <i className="fa-solid fa-hammer"></i>,
+  },
+];
