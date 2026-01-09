@@ -151,14 +151,6 @@ export async function POST(req) {
       replyTo: sanitizedData.email,
       subject: '📘 New Product Catalog Request',
 
-      attachments: [
-        {
-          filename: 'logo-blue.svg',
-          path: `${process.cwd()}/public/logo-blue.svg`,
-          cid: 'companylogo', // 👈 IMPORTANT
-        },
-      ],
-
       html: `
   <div style="
     font-family: Arial, Helvetica, sans-serif;
