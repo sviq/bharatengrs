@@ -288,7 +288,7 @@ export async function POST(req) {
       attachments: [
         {
           filename: 'Bharat_Engineers_Catalog.pdf',
-          path: `${process.cwd()}/public/assets/Bharat_profile.pdf`,
+          path: `https://bharatengrs.netlify.app/assets/Bharat_profile.pdf`,
           contentType: 'application/pdf',
         },
       ],
