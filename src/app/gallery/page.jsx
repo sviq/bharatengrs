@@ -16,7 +16,7 @@ export default function GalleryPage() {
     <main>
       <Hero
         badge="PROJECT SHOWCASE"
-        heading="Engineering Gallery"
+        heading="Gallery"
         description="Explore our diverse range of engineered solutions and precision-built products. From high-voltage power distribution systems to custom sheet metal fabrication, witness the quality and precision that defines Bharat Engineers."
       />
       <GallerySection />

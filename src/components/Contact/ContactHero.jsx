@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
-import { useRef } from 'react';
 
 // Motion Variants
 const fadeUp = {
@@ -22,38 +21,34 @@ const fade = {
   show: { opacity: 1, transition: { duration: 1 } },
 };
 
-export default function ContactHero({firstNameRef}) {
+export default function ContactHero({ firstNameRef }) {
+  const handleScrollToForm = () => {
+    if (!firstNameRef?.current) return;
 
- const handleScrollToForm = () => {
-   if (!firstNameRef?.current) return;
+    // Wait for layout + paint
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        firstNameRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
 
-   // Wait for layout + paint
-   requestAnimationFrame(() => {
-     requestAnimationFrame(() => {
-       firstNameRef.current.scrollIntoView({
-         behavior: 'smooth',
-         block: 'center',
-       });
-
-       firstNameRef.current.focus({ preventScroll: true });
-     });
-   });
- };
-
-
-
+        firstNameRef.current.focus({ preventScroll: true });
+      });
+    });
+  };
 
   return (
     <section
       id="hero-contact"
-      className="relative py-20 md:pt-0 bg-slate-800 overflow-hidden h-[600px] flex items-center"
+      className="relative py-20 md:pt-0 overflow-hidden h-[600px] flex items-center"
     >
       {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <img
           src="/images/about/About-hero.webp"
           alt="Industrial Background"
-          className="w-full h-full object-cover grayscale opacity-40"
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -66,15 +61,20 @@ export default function ContactHero({firstNameRef}) {
       /> */}
 
       {/* GRADIENT OVERLAY */}
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-20"
-       
-      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 z-20" />
 
       {/* CONTENT */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 w-full">
+      <motion.div
+        className="relative z-20 max-w-7xl mx-auto w-full px-4"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        // initial="hidden"
+        // whileInView="show"
+        viewport={{ once: true, margin: '-80px' }}
+      >
         <motion.div
-          className="max-w-2xl"
+          className="max-w-2xl bg-[#050f47]/80 backdrop-blur-sm rounded-lg px-4 py-6 "
           variants={staggerParent}
           initial="hidden"
           whileInView="show"
@@ -134,7 +134,7 @@ export default function ContactHero({firstNameRef}) {
             </motion.a> */}
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

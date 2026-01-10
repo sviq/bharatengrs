@@ -98,16 +98,21 @@ export default function ManufacturingFacilities() {
       <section id="manufacturing-facilities" className="py-20 bg-gray-50 relative">
         <div className="max-w-7xl mx-auto px-4">
           {/* Header */}
-          <div className="flex items-end justify-between mb-12">
+          <div className="flex flex-col items-center justify-center mb-12">
             <div>
               <h2 className="font-display font-bold text-3xl md:text-4xl text-slate-900 uppercase mb-2">
                 Manufacturing <span className="text-orange-500">Facilities</span>
               </h2>
-              <div className="h-1 w-24 bg-orange-500"></div>
+              <div className="h-1 w-24 bg-orange-500 mx-auto mt-4"></div>
             </div>
 
-            <div className="hidden md:block text-gray-400 text-sm font-mono">
+            {/* <div className="hidden md:block text-gray-400 text-sm font-mono">
               // PRECISION MACHINERY
+            </div> */}
+            <div className="text-gray-400 text-base text-center max-w-4xl mt-4 ">
+              Bharat Engineers is empowered with robust manufacturing and testing facilities
+              enabling precision engineering and unmatched product quality. We combine cutting-edge
+              technology with decades of expertise.
             </div>
           </div>
 
