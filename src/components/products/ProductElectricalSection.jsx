@@ -48,13 +48,13 @@ const useProducts = () =>
         title: 'Motor Control Centers (MCC)',
         description:
           'Draw-out and fixed type MCC panels engineered for operational safety and reliability.',
-        image: '/images/hero/product2.webp',
+        image: '/images/products/MCC_Panel.webp',
       },
       {
         title: 'Control Panels',
         description:
           'Furnace, Chiller, and Damper control panels designed for precise process automation.',
-        image: '/images/hero/product3.webp',
+        image: '/images/products/PCC (1).webp',
       },
       {
         title: 'Specialized Panels',
@@ -68,9 +68,11 @@ const useProducts = () =>
         image: '/images/hero/product5.webp',
       },
       {
-        title: 'Bus Ducts',
-        description: 'High-amperage bus bar systems for reliable and efficient power transmission.',
-        image: '/images/hero/product3.webp',
+        title: 'HVAC Panels',
+        description:
+          'Custom-designed HVAC control panels for efficient operation of heating, ventilation, and air-conditioning systems, ensuring reliable control.',
+        // image: '/images/hero/product3.webp',
+        image: '/images/products/HVAC_Panel (1).webp',
       },
     ],
     []
@@ -92,14 +94,14 @@ const ProductCard = memo(({ product, index }) => (
                overflow-hidden transition-all duration-300"
   >
     {/* Image */}
-    <div className="h-48 overflow-hidden bg-gray-100 relative">
+    <div className="h-96 overflow-hidden bg-gray-100 relative">
       <Image
         src={product.image}
         alt={product.title}
         loading="lazy"
         width={500}
-        height={400}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        height={480}
+        className="w-full h-full group-hover:scale-105 transition-transform duration-700"
       />
     </div>
 
@@ -138,7 +140,7 @@ export default function ProductsElectricalSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
         {/* Section Header */}
-        <MotionDiv
+        {/* <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -156,7 +158,25 @@ export default function ProductsElectricalSection() {
             Comprehensive range of LT panels designed for robust power distribution and precise
             control across industrial applications.
           </p>
-        </MotionDiv>
+        </MotionDiv> */}
+
+        <div className="text-center mb-16 flex items-center justify-center flex-col">
+          <div className="w-fit">
+            <h2 className="text-gray-700 border-b-4 border-orange-500 font-bold tracking-widest uppercase text-3xl pb-2">
+              Product Categories
+            </h2>
+            {/* <div className="h-1 w-24 bg-orange-500"></div> */}
+          </div>
+
+          {/* <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            Why Choose Bharat Engineers?
+          </h3> */}
+
+          <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
+            In-house customized design and manufacturing of LT panels for diverse industrial
+            applications, including PCC, MCC, APFC, PLC-based, Draw-out, VFD, and IMCC panels.
+          </p>
+        </div>
 
         {/* Product Grid */}
         <MotionDiv

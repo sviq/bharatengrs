@@ -66,7 +66,7 @@ export default function Header() {
               <img
                 src="/logo-blue.svg"
                 alt="Company Logo"
-                className="h-12 md:h-14 cursor-pointer object-contain"
+                className="h-12 md:h-20 cursor-pointer object-contain py-1"
               />
             </Link>
           </motion.div>

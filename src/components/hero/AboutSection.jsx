@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ShieldIcon, ToolIcon } from 'public/icons/Icons';
+import Counter from './Counter';
 
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
   ssr: false,
@@ -37,7 +38,9 @@ export default function AboutSection() {
                 {/* Image 1 */}
                 <div className="h-48 rounded-lg overflow-hidden shadow-lg relative bg-gray-100 flex items-center justify-center">
                   <div className="text-center p-6 ">
-                    <h3 className="text-4xl font-bold text-orange-500">50+</h3>
+                    <h3 className="text-4xl font-bold text-orange-500">
+                      <Counter end={50} />
+                    </h3>
                     <p className="text-gray-600 font-medium">Major Client</p>
                   </div>
                 </div>
@@ -45,7 +48,9 @@ export default function AboutSection() {
                 {/* Counter Box */}
                 <div className="h-60 rounded-lg shadow-lg bg-gray-100 flex items-center justify-center">
                   <div className="text-center p-6">
-                    <h3 className="text-4xl font-bold text-orange-500">20+</h3>
+                    <h3 className="text-4xl font-bold text-orange-500">
+                      <Counter end={20} />
+                    </h3>
                     <p className="text-gray-600 font-medium">Years of Experience</p>
                   </div>
                 </div>
@@ -64,7 +69,9 @@ export default function AboutSection() {
                     className="object-cover transition-transform duration-700 hover:scale-110"
                   /> */}
                   <div className="text-center p-6 ">
-                    <h3 className="text-4xl font-bold text-orange-500">500+</h3>
+                    <h3 className="text-4xl font-bold text-orange-500">
+                      <Counter end={500} />
+                    </h3>
                     <p className="text-gray-600 font-medium">Project Delivered</p>
                   </div>
                 </div>
