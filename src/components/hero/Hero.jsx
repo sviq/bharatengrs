@@ -228,7 +228,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
           >
-            <h1 className="font-bold text-4xl md:text-4xl lg:text-4xl leading-loose mb-3">
+            <h1 className="font-bold text-4xl mb-3">
               Manufacturer of Quality <br/> <span className="text-orange-500">Electrical Power</span><br/> &
               Control Panels
             </h1>
