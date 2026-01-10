@@ -183,7 +183,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/banner/PCC.webp"
+          src="/banner/PCC (2).webp"
           alt="Industrial Factory Background"
           className="w-full h-full object-cover"
         />
