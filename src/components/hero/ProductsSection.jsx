@@ -79,13 +79,15 @@ export default function ProductsSection() {
               transition={{ type: 'spring', stiffness: 120 }}
               className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
             >
-              <div className="h-96 overflow-hidden bg-gray-100 relative">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
+              <div className="relative min-h-[12rem] md:min-h-[24rem] overflow-hidden bg-gray-100">
+                {product?.image && (
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    loading="eager"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-105"
+                  />
+                )}
               </div>
 
               <div className="p-6">

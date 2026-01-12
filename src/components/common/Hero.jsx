@@ -25,7 +25,7 @@ export default function Hero({ badge, heading, description }) {
         {/* Background Layer */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/banner/HERO_BANNER.webp"
+            src="/banner/HERO_BANNER(home).webp"
             alt="Industrial Factory Background"
             className="w-full h-full object-cover"
           />
