@@ -102,7 +102,7 @@ export default function RootLayout({ children }) {
         <main className="pt-20">{children}</main>
 
         <Footer />
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
         <ScrollToTop />
       </body>
     </html>

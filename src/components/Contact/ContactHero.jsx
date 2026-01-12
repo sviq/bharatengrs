@@ -46,7 +46,7 @@ export default function ContactHero({ firstNameRef }) {
       {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <img
-          src="/images/about/About-hero.webp"
+          src="/banner/Hero_banner(home).webp"
           alt="Industrial Background"
           className="w-full h-full object-cover"
         />
