@@ -68,7 +68,7 @@ export default function ProductsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {products.map((product, index) => (
             <MotionDiv
@@ -84,7 +84,7 @@ export default function ProductsSection() {
                   src={product.image}
                   alt={product.title}
                   loading="lazy"
-                  className="w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
 

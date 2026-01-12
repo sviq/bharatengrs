@@ -169,6 +169,7 @@
 
 import dynamic from 'next/dynamic';
 import { FaCircleCheck } from 'public/icons/Icons';
+import Link from 'next/link';
 
 // Framer Motion loaded only on client → MUCH better performance
 const MotionDiv = dynamic(() => import('framer-motion').then((mod) => mod.motion.div), {
@@ -179,18 +180,18 @@ const features = ['High Quality', 'Competitive Price', 'Easy Maintenance'];
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative h-[600px] flex items-center bg-black/60 overflow-hidden">
+    <section id="hero" className="relative h-[700px] flex items-center bg-black/60 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/banner/PCC (2).webp"
+          src="/banner/Hero_banner(home).webp"
           alt="Industrial Factory Background"
           className="w-full h-full object-cover"
         />
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/5 to-transparent z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/5 z-[1]" />
 
       {/* CONTENT WRAPPER */}
       <div className="container max-w-7xl px-4 mx-auto relative z-[2] flex flex-col md:flex-row items-center">
@@ -199,16 +200,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="
-    w-full md:w-[360px]
-    text-white
-    bg-[#050f47]/40
-    backdrop-blur-xl
-    border border-white/10
-    rounded-2xl
-    p-4 md:py-10
-    
-  "
+          className="w-full md:w-2/3  text-white"
         >
           {/* Badge */}
           {/* <MotionDiv
@@ -228,14 +220,14 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
           >
-            <h1 className="font-bold text-4xl mb-3">
-              Manufacturer of Quality <br/> <span className="text-orange-500">Electrical Power</span><br/> &
+            <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
+              Manufacturer of Quality <span className="text-orange-500">Electrical Power</span> &
               Control Panels
             </h1>
           </MotionDiv>
 
           {/* Subheading */}
-          {/* <MotionDiv
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -244,7 +236,7 @@ const HeroSection = () => {
               Specializing in Instrumentation CTs & PTs. Delivering reliable, high-performance
               switchboards engineered for safety and efficiency.
             </p>
-          </MotionDiv> */}
+          </MotionDiv>
 
           {/* CTA Buttons */}
 

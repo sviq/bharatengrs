@@ -94,14 +94,13 @@ const ProductCard = memo(({ product, index }) => (
                overflow-hidden transition-all duration-300"
   >
     {/* Image */}
-    <div className="h-96 overflow-hidden bg-gray-100 relative">
-      <Image
+    <div className="h-48 md:h-96 overflow-hidden bg-gray-100 relative">
+      <img
         src={product.image}
         alt={product.title}
         loading="lazy"
-        width={500}
-        height={480}
-        className="w-full h-full group-hover:scale-105 transition-transform duration-700"
+       
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
       />
     </div>
 
