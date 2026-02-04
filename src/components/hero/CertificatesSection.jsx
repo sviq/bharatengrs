@@ -7,20 +7,28 @@ const iconClass = 'text-4xl text-orange-500';
 const certificateItems = [
   {
     Icon: FaCertificate,
-    title: 'ISO 9001:2008',
+    title: 'ISO 9001',
   },
+  // {
+  //   Icon: FaShieldAlt,
+  //   title: 'CPRI Tested',
+  // },
   {
     Icon: FaShieldAlt,
-    title: 'CPRI Tested',
+    title: 'L&T TI IEC 61439 ',
   },
+  // {
+  //   Icon: CheckDouble,
+  //   title: 'IEC 61439',
+  // },
   {
     Icon: CheckDouble,
-    title: 'IEC 61439',
+    title: ' SIEPAN 8PU',
   },
-  {
-    Icon: FaAward,
-    title: 'ERDA Certified',
-  },
+  // {
+  //   Icon: FaAward,
+  //   title: 'ERDA Certified',
+  // },
 ];
 
 const CertificatesSection = () => {
@@ -44,7 +52,7 @@ const CertificatesSection = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {certificateItems.map(({ Icon, title }) => (
             <div
               key={title}

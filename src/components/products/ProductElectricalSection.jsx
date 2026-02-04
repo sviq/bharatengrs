@@ -39,13 +39,15 @@ const useProducts = () =>
   useMemo(
     () => [
       {
-        title: 'Electrical Distribution Panels',
+        // title: 'Electrical Distribution Panels',
+        title: 'PCC',
         description:
           'PCC, PDB, ACDB, DCDB, LDBs, Bus Ducts, Feeder Pillars for efficient power distribution.',
         image: '/images/hero/product1.webp',
       },
       {
-        title: 'Motor Control Centers (MCC)',
+        // title: 'Motor Control Centers (MCC)',
+        title: 'MCC',
         description:
           'Draw-out and fixed type MCC panels engineered for operational safety and reliability.',
         image: '/images/products/MCC_Panel.webp',
@@ -57,12 +59,12 @@ const useProducts = () =>
         image: '/images/products/PCC (1).webp',
       },
       {
-        title: 'Specialized Panels',
+        title: 'APFC Panels',
         description: 'AMF, Change Over, and APFC panels tailored for industrial requirements.',
         image: '/images/hero/product4.webp',
       },
       {
-        title: 'Synchronizing Panels',
+        title: 'VFD Panels',
         description:
           'DG & Grid synchronizing solutions ensuring seamless power source integration.',
         image: '/images/hero/product5.webp',
@@ -172,8 +174,10 @@ export default function ProductsElectricalSection() {
           </h3> */}
 
           <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-            In-house customized design and manufacturing of LT panels for diverse industrial
-            applications, including PCC, MCC, APFC, PLC-based, Draw-out, VFD, and IMCC panels.
+            {/* In-house customized design and manufacturing of LT panels for diverse industrial
+            applications, including PCC, MCC, APFC, PLC-based, Draw-out, VFD, and IMCC panels. */}
+            In house tailor made design and manufacturing of LT panels ranging from PCCs, MCCs APFC,
+            IMCC’s, VFD panels.
           </p>
         </div>
 

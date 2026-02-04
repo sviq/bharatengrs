@@ -7,7 +7,7 @@ export const products = [
     image: '/images/products/MCC_Panel.webp',
   },
   {
-    title: 'MV Panels up to 11kV',
+    title: 'MV Panels',
     description: 'Robust Medium Voltage panels ensuring safe power distribution for heavy loads.',
     image: '/images/hero/product2.webp',
   },
@@ -28,12 +28,12 @@ export const products = [
     description: 'Advanced automation panels for power factor correction and drive control.',
     image: '/images/hero/product4.webp',
   },
-  {
-    title: 'Process Control Panels',
-    description: 'Customized control solutions for specialized process industries.',
-    // image: '/images/hero/product5.webp',
-    image: '/images/products/PCC (1).webp',
-  },
+  // {
+  //   title: 'Process Control Panels',
+  //   description: 'Customized control solutions for specialized process industries.',
+  //   // image: '/images/hero/product5.webp',
+  //   image: '/images/products/PCC (1).webp',
+  // },
   // Add more products as needed
 ];
 

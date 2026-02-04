@@ -11,11 +11,18 @@ const logos = [
   { src: '/images/hero/ABB.webp', alt: 'ABB' },
   { src: '/images/hero/rubamin.webp', alt: 'Rubamin' },
   { src: '/images/hero/emerson.webp', alt: 'Emerson' },
-  { src: '/images/hero/essar.webp', alt: 'Essar' },
+  // { src: '/images/hero/essar.webp', alt: 'Essar' },
   { src: '/images/hero/gsfc.webp', alt: 'GSFC' },
   { src: '/images/hero/KEC.webp', alt: 'KEC International' },
   { src: '/images/hero/polycab.webp', alt: 'Polycab' },
   { src: '/images/hero/Aditya.webp', alt: 'Aditya Birla Group' },
+  { src: '/images/hero/gulbrandsen.webp', alt: 'gulbrandsen' },
+  { src: '/images/hero/lttechandservice.webp', alt: 'lttechandservice' },
+  { src: '/images/hero/adani.png', alt: 'adani' },
+  { src: '/images/hero/gfl.webp', alt: 'gfl' },
+  { src: '/images/hero/siemens.webp', alt: 'siemens' },
+  { src: '/images/hero/jsw.webp', alt: 'jsw' },
+  { src: '/images/hero/epsilon.webp', alt: 'epsilon' },
 ];
 
 const fadeUp = {

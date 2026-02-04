@@ -24,7 +24,8 @@ export const features = [
   {
     icon: ClipboardCheck,
     title: 'Comprehensive Testing & Validation',
-    desc: 'Type testing, temperature rise tests, FAT, and multi-stage quality checks with provision for safe and quick commissioning.',
+    // desc: 'Type testing, temperature rise tests, FAT, and multi-stage quality checks with provision for safe and quick commissioning.',
+    desc: 'FAT, and multi-stage quality checks with provision for all testing facilities during inspection.',
   },
   {
     icon: Layers,

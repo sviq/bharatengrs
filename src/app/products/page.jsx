@@ -40,7 +40,7 @@ export default function ProductsPage() {
         description="Advanced electrical distribution, control panels, and instrumentation solutions engineered for reliability and performance."
       />
       <ProductsElectricalSection />
-      <TechnicalSpecifications />
+      {/* <TechnicalSpecifications /> */}
       <IndustriesSection />
       <ClientsCorousel />
     </>

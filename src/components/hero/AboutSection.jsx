@@ -41,7 +41,7 @@ export default function AboutSection() {
                     <h3 className="text-4xl font-bold text-orange-500">
                       <Counter end={50} />
                     </h3>
-                    <p className="text-gray-600 font-medium">Major Client</p>
+                    <p className="text-gray-600 font-medium">Major Clients</p>
                   </div>
                 </div>
 
@@ -70,9 +70,9 @@ export default function AboutSection() {
                   /> */}
                   <div className="text-center p-6 ">
                     <h3 className="text-4xl font-bold text-orange-500">
-                      <Counter end={500} />
+                      <Counter end={2500} />
                     </h3>
-                    <p className="text-gray-600 font-medium">Project Delivered</p>
+                    <p className="text-gray-600 font-medium">Project Executed</p>
                   </div>
                 </div>
 
@@ -98,19 +98,27 @@ export default function AboutSection() {
             </h2>
 
             <div className="text-gray-600 mb-8 space-y-4 leading-relaxed">
-              <p>
+              {/* <p>
                 Bharat Engineers and its talented team is led by
                 <strong> Mr. Anil M. Deotale</strong>, a Veteran in the field of Power Control
                 Centers, Established in 2005. Bharat Engineers has made rapid strides in the field
                 of Power Control Centers (PCC) Panels.
-              </p>
+              </p> */}
 
               <p>
+                Bharat Engineers, established in 2005, is a manufacturer of
+                <strong> LV and MV </strong>panels for a variety of industrial and commercial
+                applications. Based in Vadodara, we are committed to delivering technically
+                superior, operationally smooth and safe, sturdy and aesthetically pleasing products
+                that offer high value for capital investment.
+              </p>
+
+              {/* <p>
                 Having worked for 20 long years in different divisions of L&T Switchgears, Mr. Anil
                 M. Deotale has gained a wealth of experience and practical knowledge. Under his
                 technical proficiency and adept management, Bharat Engineers is moving forward
                 towards the most reliable manufacturer of Power Control Center panels.
-              </p>
+              </p> */}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
