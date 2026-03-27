@@ -1,18 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  
+  output: 'export',   
+
   images: {
     unoptimized: true,
   },
-  trailingSlash: false,
-  
-  // Optimize Fast Refresh
+
+  trailingSlash: true,
+
   reactStrictMode: true,
-  
-  // Reduce rebuilds
+
   webpack: (config, { dev, isServer }) => {
     if (dev && !isServer) {
-      // Optimize Fast Refresh for better performance
       config.optimization = {
         ...config.optimization,
         moduleIds: 'named',
@@ -23,4 +22,3 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
-
