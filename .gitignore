@@ -32,3 +32,53 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js build output
+/.next/
+/out/
+
+# production build
+/build
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env files (VERY IMPORTANT - secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+
+# cache
+.cache/
+
+# typescript
+*.tsbuildinfo
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# misc
+*.pem
+
+# debug
+*.log
+
+# local config
+.next.config.js.local
