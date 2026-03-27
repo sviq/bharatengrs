@@ -43,38 +43,38 @@ const useProducts = () =>
         title: 'PCC',
         description:
           'PCC, PDB, ACDB, DCDB, LDBs, Bus Ducts, Feeder Pillars for efficient power distribution.',
-        image: '/images/hero/product1.webp',
+        image: '/images/hero/hero-product-1.webp',
       },
       {
         // title: 'Motor Control Centers (MCC)',
         title: 'MCC',
         description:
           'Draw-out and fixed type MCC panels engineered for operational safety and reliability.',
-        image: '/images/products/MCC_Panel.webp',
+        image: '/images/products/products-mcc-panel.webp',
       },
       {
         title: 'Control Panels',
         description:
           'Furnace, Chiller, and Damper control panels designed for precise process automation.',
-        image: '/images/products/PCC (1).webp',
+        image: '/images/products/products-pcc-1.webp',
       },
       {
         title: 'APFC Panels',
         description: 'AMF, Change Over, and APFC panels tailored for industrial requirements.',
-        image: '/images/hero/product4.webp',
+        image: '/images/hero/hero-product-4.webp',
       },
       {
         title: 'VFD Panels',
         description:
           'DG & Grid synchronizing solutions ensuring seamless power source integration.',
-        image: '/images/hero/product5.webp',
+        image: '/images/hero/hero-product-5.webp',
       },
       {
         title: 'HVAC Panels',
         description:
           'Custom-designed HVAC control panels for efficient operation of heating, ventilation, and air-conditioning systems, ensuring reliable control.',
-        // image: '/images/hero/product3.webp',
-        image: '/images/products/HVAC_Panel (1).webp',
+        // image: '/images/hero/hero-product-3.webp',
+        image: '/images/products/products-hvac-panel-1.webp',
       },
     ],
     []

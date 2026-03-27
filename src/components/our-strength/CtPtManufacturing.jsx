@@ -11,7 +11,7 @@ export default function CtPtManufacturing() {
         'High-precision automated winding for CT/PT transformers ensuring consistent quality and electrical characteristics.',
       // image:
       //   'https://images.unsplash.com/photo-1513828583688-c52646db42da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      image: '/images/ourStrength/image7.avif',
+      image: '/images/ourStrength/ourstrength-image-7.avif',
       icon: <FaCircleNotch className="text-2xl text-orange-500" />,
     },
     {
@@ -20,7 +20,7 @@ export default function CtPtManufacturing() {
         'Advanced vacuum casting plant for superior insulation and environmental protection of transformers.',
       // image:
       //   'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      image: '/images/ourStrength/image8.jpg',
+      image: '/images/ourStrength/ourstrength-image-8.jpg',
       icon: <FaFlask className="text-2xl text-orange-500" />,
     },
   ];

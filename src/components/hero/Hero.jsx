@@ -132,7 +132,7 @@
 //           >
 //             <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200">
 //               <img
-//                 src="/images/hero.webp"
+//                 src="/images/hero/hero.webp"
 //                 alt="Industrial Electrical Control Room"
 //                 className="w-full h-[600px] object-cover"
 //                 loading="lazy"
@@ -183,7 +183,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/banner/Hero_banner(home).webp"
+          src="/banner/banner-hero-banner-home.webp"
           alt="Industrial Factory Background"
           className="w-full h-full object-cover"
         />

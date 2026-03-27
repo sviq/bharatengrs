@@ -21,17 +21,17 @@ const MotionDiv = dynamic(() => import('framer-motion').then((m) => m.motion.div
 });
 
 const logos = [
-  { src: '/images/hero/reliance.webp', alt: 'Reliance Industries' },
-  { src: '/images/hero/Linde.webp', alt: 'Linde' },
-  { src: '/images/hero/lnt-power.webp', alt: 'L&T Power' },
-  { src: '/images/hero/ABB.webp', alt: 'ABB' },
-  { src: '/images/hero/rubamin.webp', alt: 'Rubamin' },
-  { src: '/images/hero/emerson.webp', alt: 'Emerson' },
-  { src: '/images/hero/essar.webp', alt: 'Essar' },
-  { src: '/images/hero/gsfc.webp', alt: 'GSFC' },
-  { src: '/images/hero/KEC.webp', alt: 'KEC International' },
-  { src: '/images/hero/polycab.webp', alt: 'Polycab' },
-  { src: '/images/hero/Aditya.webp', alt: 'Aditya Birla Group' },
+  { src: '/images/hero/hero-reliance.webp', alt: 'Reliance Industries' },
+  { src: '/images/hero/hero-linde.webp', alt: 'Linde' },
+  { src: '/images/hero/hero-lnt-power.webp', alt: 'L&T Power' },
+  { src: '/images/hero/hero-abb.webp', alt: 'ABB' },
+  { src: '/images/hero/hero-rubamin.webp', alt: 'Rubamin' },
+  { src: '/images/hero/hero-emerson.webp', alt: 'Emerson' },
+  { src: '/images/hero/hero-essar.webp', alt: 'Essar' },
+  { src: '/images/hero/hero-gsfc.webp', alt: 'GSFC' },
+  { src: '/images/hero/hero-kec.webp', alt: 'KEC International' },
+  { src: '/images/hero/hero-polycab.webp', alt: 'Polycab' },
+  { src: '/images/hero/hero-aditya.webp', alt: 'Aditya Birla Group' },
 ];
 
 // const duplicated = [...logos, ...logos, ...logos];

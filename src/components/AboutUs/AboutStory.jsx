@@ -53,7 +53,7 @@ export default function AboutStory() {
               }}
             >
               <img
-                src="/images/about/Story.webp"
+                src="/images/about/about-story.webp"
                 alt="Engineering Team"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

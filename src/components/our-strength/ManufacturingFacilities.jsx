@@ -10,7 +10,7 @@ const facilities = [
     title: 'CNC Turret Punch Press',
     // image:
     //   'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80',
-    image: '/images/ourStrength/image1.jpg',
+    image: '/images/ourStrength/ourstrength-image-1.jpg',
     badge: 'AMADA',
     specs: [
       { label: 'Capacity:', value: '200KN' },
@@ -23,7 +23,7 @@ const facilities = [
     title: 'CNC Bending Machine',
     // image:
     //   'https://images.unsplash.com/photo-1565439398532-39c642a8b9e2?auto=format&fit=crop&w=800&q=80',
-    image: '/images/ourStrength/image2.jpg',
+    image: '/images/ourStrength/ourstrength-image-2.jpg',
     badge: 'AMADA',
     specs: [
       { label: 'Type:', value: 'RGM2' },
@@ -35,7 +35,7 @@ const facilities = [
     title: 'Hydraulic Bending Machine',
     // image:
     //   'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
-    image: '/images/ourStrength/image3.jpg',
+    image: '/images/ourStrength/ourstrength-image-3.jpg',
     badge: 'WELDOR',
     specs: [
       { label: 'Capacity:', value: '80T' },
@@ -47,7 +47,7 @@ const facilities = [
     title: 'Hydraulic Shearing Machine',
     // image:
     //   'https://images.unsplash.com/photo-1589792923962-537704632910?auto=format&fit=crop&w=800&q=80',
-    image: '/images/ourStrength/image4.jpg',
+    image: '/images/ourStrength/ourstrength-image-4.jpg',
     badge: 'WELDOR',
     specs: [
       { label: 'Capacity:', value: '4.0mm Sheet' },
@@ -61,7 +61,7 @@ const facilities = [
     // icon: (
     //   <FaSprayCanSparkles className="text-6xl text-gray-300 group-hover:text-orange-500 transition-colors" />
     // ),
-    image: '/images/ourStrength/image5.jpg',
+    image: '/images/ourStrength/ourstrength-image-5.jpg',
     specs: [{ label: 'Dimensions (LxWxH):', value: '2700mm x 1900mm x 3000mm' }],
   },
   {
@@ -69,7 +69,7 @@ const facilities = [
     // icon: (
     //   <FaTemperatureHigh className="text-6xl text-gray-300 group-hover:text-orange-500 transition-colors" />
     // ),
-    image: '/images/ourStrength/image6..webp',
+    image: '/images/ourStrength/ourstrength-image-6.webp',
     specs: [
       { label: 'Max Temp:', value: '200°C', highlight: true },
       { label: 'Dimensions (LxWxH):', value: '3000mm x 2300mm x 2400mm' },

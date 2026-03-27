@@ -54,7 +54,7 @@ export default function OtherFacilities() {
             >
               <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden group">
                 <Image
-                  src="/images/ourStrength/workflow.webp"
+                  src="/images/ourStrength/ourstrength-workflow.webp"
                   alt="Factory Floor"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"

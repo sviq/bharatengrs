@@ -61,7 +61,7 @@ export default function AboutSection() {
                 {/* Image 2 */}
                 <div className="h-60 rounded-lg overflow-hidden shadow-lg relative flex items-center justify-center bg-gray-100">
                   {/* <Image
-                    src="/images/hero/about2.webp"
+                    src="/images/hero/hero-about-2.webp"
                     alt="Electrical control panel"
                     fill
                     priority={false}
